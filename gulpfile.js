@@ -11,7 +11,7 @@ gulp.task('html', function(){
 // Browser task
 gulp.task('browser-sync', function() {
 	browserSync.init({
-		proxy : 'http://localhost/web-lpmp-jatim/',
+		proxy : 'http://localhost/lpmp',
 	});
 });
 

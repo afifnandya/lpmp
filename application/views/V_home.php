@@ -32,10 +32,11 @@
     <!-- nav -->
     <?php $this->load->view('navbar') ?>
     <!-- end nav -->
-    <div class="clearfix"></div>
+    <!-- <div class="clearfix"></div> -->
+    <div class="col-xs-12 separator"></div>
     <div class="content">
     <div class="container-fluid no-padding">
-        <div class="col-xs-12 row-0 no-padding" id="head-line">
+        <div class="col-xs-12 no-padding" id="head-line">
             <div class="col-md-1"></div>
             <div class="col-md-10 col-xs-12">
                 <div class="col-xs-12 no-padding">
@@ -129,8 +130,8 @@
             </div>
             <di class="col-md-1"></di>
         </div>
-        <div class="col-xs-12"></div>
-        <div class="col-xs-12 row-2 no-padding" id="layanan">
+        <div class="col-xs-12 separator"></div>
+        <div class="col-xs-12 no-padding" id="layanan">
             <div class="col-md-1"></div>
             <div class="col-xs-12 col-md-10 no-padding-repsonsive">
                 <div class="col-xs-12 col-md-12 no-padding">
@@ -144,26 +145,26 @@
             <div class="clearfix"></div>
             <div class="col-md-1"></div>
             <div class="col-xs-12 col-md-10 no-padding-repsonsive">
-                <div class="client-slider">
-                    <div class="col-xs-12 col-md-3 no-padding client-slider-item">
+                <div class="layanan-slider">
+                    <div class="col-xs-12 col-md-3 no-padding layanan-slider-item">
                         <a href="">
                             <img src="<?php echo base_url()?>assets/img/backpack.png" class="img-responsive">
                             <p>Hallo</p>
                         </a>
                     </div>
-                    <div class="col-xs-12 col-md-3 no-padding client-slider-item">
+                    <div class="col-xs-12 col-md-3 no-padding layanan-slider-item">
                         <a href="">
                             <img src="<?php echo base_url()?>assets/img/bookshelf.png" class="img-responsive">
                             <p>Hallo</p>
                         </a>
                     </div>
-                    <div class="col-xs-12 col-md-3 no-padding client-slider-item">
+                    <div class="col-xs-12 col-md-3 no-padding layanan-slider-item">
                         <a href="">
                             <img src="<?php echo base_url()?>assets/img/pie-chart.png" class="img-responsive">
                             <p>Hallo</p>
                         </a>
                     </div>
-                    <div class="col-xs-12 col-md-3 no-padding client-slider-item">
+                    <div class="col-xs-12 col-md-3 no-padding layanan-slider-item">
                         <a href="">
                             <img src="<?php echo base_url()?>assets/img/speech-bubble.png" class="img-responsive">
                             <p>Hallo</p>
@@ -173,6 +174,7 @@
             </div>
             <div class="col-md-1"></div>
         </div>
+        <div class="col-xs-12 separator"></div>
         <div class="col-xs-12 no-padding" id="pengetahuan">
             <div class="col-md-1 no-padding"></div>
             <div class="col-xs-12 col-md-6 no-padding-responsive">
@@ -254,11 +256,36 @@
                             </div>
                         </div>
                     </a>
+                    <a href="#" class="artikel-link">
+                        <div class="col-xs-12 head-line-side-item no-padding">
+                            <div class="col-xs-5 no-padding-left">
+                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-xs-7 no-padding">
+                                <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
+                                <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
+                                <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="artikel-link">
+                        <div class="col-xs-12 head-line-side-item no-padding">
+                            <div class="col-xs-5 no-padding-left">
+                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-xs-7 no-padding">
+                                <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
+                                <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
+                                <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-1 no-padding"></div>
         </div>
-        <div class="col-xs-12 row-3 no-padding" id="artikel">
+        <div class="col-xs-12 separator"></div>
+        <div class="col-xs-12 no-padding" id="artikel">
             <div class="col-md-1 no-padding"></div>
             <div class="col-xs-12 col-md-10 no-padding-repsonsive">
                 <div class="col-xs-12 col-md-4 no-padding-left artikel-wrap">
@@ -274,7 +301,6 @@
                                     <span class="artikel-hot-date"><?php echo date("d/m/Y", strtotime($artikel_inside_school[0]['datetime'])) ?></span><br>
                                     <?php echo $artikel_inside_school[0]['judul'] ?>
                                 </span>
-                                <!-- <span class="artikel-hot-sub-caption">Afif Nandya Saputra</span> -->
                             </a>
                         </div>
                         <div class="artikel-normal">
@@ -282,7 +308,6 @@
                                 <?php foreach($artikel_inside_school as $inside_school){ ?>
                                 <li><a href="<?php echo site_url('artikel/inside-school')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$inside_school['judul']) ?>"><?php echo $inside_school['judul'] ?></a></li>
                                 <?php } ?>
-                                <li class="lihat-semua"><a href="<?php echo site_url('artikel/inside-school') ?>">Lihat Semua</a></li>
                             </ul>
                         </div>
                     </div>
@@ -300,7 +325,6 @@
                                     <span class="artikel-hot-date"><?php echo date("d/m/Y", strtotime($artikel_kabar_sepekan[0]['datetime'])) ?></span><br>
                                     <?php echo $artikel_kabar_sepekan[0]['judul'] ?>
                                 </span>
-                                <!-- <span class="artikel-hot-sub-caption">Afif Nandya Saputra</span> -->
                             </a>
                         </div>
                         <div class="artikel-normal">
@@ -308,7 +332,6 @@
                                 <?php foreach($artikel_kabar_sepekan as $kabar_sepekan){ ?>
                                 <li><a href="<?php echo site_url('artikel/kabar-sepekan')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$kabar_sepekan['judul']) ?>"><?php echo $kabar_sepekan['judul'] ?></a></li>
                                 <?php } ?>
-                                <li class="lihat-semua"><a href="<?php echo site_url('artikel/kabar-sepekan') ?>">Lihat Semua</a></li>
                             </ul>
                         </div>
                     </div>
@@ -326,7 +349,6 @@
                                     <span class="artikel-hot-date"><?php echo date("d/m/Y", strtotime($artikel_hidup_guruku[0]['datetime'])) ?></span><br>
                                     <?php echo $artikel_hidup_guruku[0]['judul'] ?>
                                 </span>
-                                <!-- <span class="artikel-hot-sub-caption"><?php echo $artikel_hidup_guruku[0]['subjudul'] ?></span> -->
                             </a>
                         </div>
                         <div class="artikel-normal">
@@ -334,7 +356,6 @@
                                 <?php foreach($artikel_hidup_guruku as $hidup_guruku){ ?>
                                 <li><a href="<?php echo site_url('artikel/hidup-guruku')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$hidup_guruku['judul']) ?>"><?php echo $hidup_guruku['judul'] ?></a></li>
                                 <?php } ?>
-                                <li class="lihat-semua"><a href="<?php echo site_url('artikel/hidup-guruku') ?>">Lihat Semua</a></li>
                             </ul>
                         </div>
                     </div>
@@ -342,24 +363,10 @@
             </div>
             <div class="col-md-1 no-padding"></div>
         </div>
+        <div class="col-xs-12 separator"></div>
         <div class="col-xs-12 no-padding" id="media">
             <div class="col-md-1 no-padding"></div>
             <div class="col-xs-12 col-md-5 no-padding-repsonsive">
-                <div class="artikel-header pengetahuan-header">
-                    <span class="artikel-header-judul">Video</span>
-                    <div class="artikel-header-underline pengetahuan-header-underline"></div>
-                </div>
-                <div class="artikel-body">
-                    <iframe src="https://www.youtube.com/embed/uIx0KXLAk14"></iframe>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-5 ">
-                <div class="artikel-header">
-                    <div class="artikel-header gallery-header">
-                        <span class="artikel-header-judul">Gallery</span>
-                        <div class="artikel-header-underline gallery-header-underline"></div>
-                    </div>
-                </div>
                 <div class="artikel-body">
                     <div class="gallery-wrap">
                         <?php
@@ -367,19 +374,46 @@
                             if($key == 0){
                         ?>
                         <div class="col-xs-12 no-padding">
-                            <a href="<?php echo $gallery[0]['file'] ?>" class="gallery-click" data-width="<?php echo $gallery[0]['width'] ?>" data-length="<?php echo $gallery[0]['height'] ?>" data-title="mks" data-index="0">
+                            <div class="gallery-wrap">
                                 <img src="<?php echo $gallery[0]['file'] ?>" alt="Beach" class="img-responsive gallery-item">
-                            </a>
+                                <a href="<?php echo $gallery[0]['file'] ?>" data-width="<?php echo $gallery[0]['width'] ?>" data-length="<?php echo $gallery[0]['height'] ?>" data-title="mks" data-index="0" class="gallery-click">
+                                    <i class="fa fa-search-plus"></i>
+                                </a>
+                            </div>
                         </div>
                         <?php  }else{
                         ?>
-                        <div class="col-xs-3 gallery-item no-padding">
+                        <div class="col-xs-3 gallery-item no-padding hidden">
                             <img src="<?php echo $gallery[$key]['file'] ?>" alt="Beach" class="img-responsive gallery-item">
                             <a href="<?php echo $gallery[$key]['file'] ?>" class="gallery-click" data-width="<?php echo $gallery[$key]['width'] ?>" data-length="<?php echo $gallery[$key]['height'] ?>" data-title="qwq" data-index="<?php echo $key ?>">
                             </a>
                         </div>
                         <?php }} ?>
                     </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-5 ">
+                <div class="artikel-body">
+                    <p class="media-heading">Gallery</p>
+                    <p class="media-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div class="col-md-1 no-padding"></div>
+        </div>
+        <div class="col-xs-12 separator2"></div>
+        <div class="col-xs-12 no-padding" id="media2">
+            <div class="col-md-1 no-padding"></div>
+            <div class="col-xs-12 col-md-5 no-padding-repsonsive">
+                <div class="artikel-body">
+                    <div class="artikel-body">
+                        <p class="media-heading">Video</p>
+                        <p class="media-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-5 ">
+                <div class="artikel-body">
+                    <iframe src="https://www.youtube.com/embed/uIx0KXLAk14"></iframe>
                 </div>
             </div>
             <div class="col-md-1 no-padding"></div>
@@ -545,9 +579,9 @@
                 }
             });
           });
-        $(".client-slider").slick({
-            nextArrow : $('.client-slider-next'),
-            prevArrow : $('.client-slider-prev'),
+        $(".layanan-slider").slick({
+            nextArrow : $('.layanan-slider-next'),
+            prevArrow : $('.layanan-slider-prev'),
             dots: true,
             infinite: true,
             speed: 300,

@@ -368,34 +368,34 @@
             <div class="col-md-1 no-padding"></div>
             <div class="col-xs-12 col-md-5 no-padding-repsonsive">
                 <div class="artikel-body">
-                    <div class="gallery-wrap">
-                        <?php
-                        foreach ($gallery as $key => $value) {
-                            if($key == 0){
-                        ?>
+                    <div class="col-xs-12 gallery-container no-padding">
                         <div class="col-xs-12 no-padding">
-                            <div class="gallery-wrap">
-                                <img src="<?php echo $gallery[0]['file'] ?>" alt="Beach" class="img-responsive gallery-item">
-                                <a href="<?php echo $gallery[0]['file'] ?>" data-width="<?php echo $gallery[0]['width'] ?>" data-length="<?php echo $gallery[0]['height'] ?>" data-title="mks" data-index="0" class="gallery-click">
-                                    <i class="fa fa-search-plus"></i>
-                                </a>
+                            <div class="gallery-slider">
+                            <?php
+                                foreach ($gallery as $key => $value) {
+                            ?>
+                                <div class="gallery-wrap">
+                                    <img src="<?php echo $gallery[$key]['file'] ?>" alt="Gallery LPMP" class="img-responsive gallery-item">
+                                    <a href="<?php echo $gallery[$key]['file'] ?>" data-width="<?php echo $gallery[$key]['width'] ?>" data-length="<?php echo $gallery[$key]['height'] ?>" data-title="mks" data-index="0" class="gallery-click">
+                                        <i class="fa fa-search-plus"></i>
+                                    </a>
+                                </div>
+                            <?php  }?>
                             </div>
                         </div>
-                        <?php  }else{
-                        ?>
-                        <div class="col-xs-3 gallery-item no-padding hidden">
-                            <img src="<?php echo $gallery[$key]['file'] ?>" alt="Beach" class="img-responsive gallery-item">
-                            <a href="<?php echo $gallery[$key]['file'] ?>" class="gallery-click" data-width="<?php echo $gallery[$key]['width'] ?>" data-length="<?php echo $gallery[$key]['height'] ?>" data-title="qwq" data-index="<?php echo $key ?>">
-                            </a>
-                        </div>
-                        <?php }} ?>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-5 ">
                 <div class="artikel-body">
                     <p class="media-heading">Gallery</p>
-                    <p class="media-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="media-text media-text-slider">
+                        <p>GO-JEK adalah sebuah perusahaan teknologi anan, termasuk transportasi dan pesan antar makanan. Kegiatan GO-JEK bertumpu pada tiga nilai pokok: kecepatan, inovasi, dan dampak sosial. Para Driver GO-JEK mengatakan bahwa pendapatan mereka meningkat semenjak bergabung sebagai mitra, mereka juga mendapatkan santunan kesehatan dan kecelakaan, serta mendapat akses ke lebih banyak pelanggan melalui aplikasi kami.</p>
+                        <p>Sebaliknya bagi kalangan berpenghasilan rendah (MBR) uang sebanyak itu bisa dibelanjakan berbagai macam kebutuhan. Bukan hanya rumah, juga perabot pelengkapnya, dan kendaraan.</p>
+                        <p>Namun, itulah fakta yang terjadi di Jakarta saat ini. Rumah mungil seharga Rp 2,5 miliar itu ada di kawasan pengembangan CitraGarden City, Jakarta Barat,</p>
+                        <p>Saat ini, pasokan lahan siap bangun sudah sangat terbatas. Karena itu, tak mengherankan jika harganya menembus angka Rp 15 juta per meter persegi</p>
+                        <p>PT Ciputra Residence pun memutuskan akan memanfaatkan lahan terbatas itu untuk pengembangan properti campuran, antara perumahan, apartemen, dan komersial.</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-1 no-padding"></div>
@@ -466,6 +466,19 @@
     <script src="<?php echo base_url()?>assets/js/photoswipe.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/photoswipe-ui-default.min.js"></script>
     <script>
+    $('.gallery-slider').slick({
+        dots : true,
+        infinite: true,
+        arrows : false,
+        asNavFor : '.media-text-slider'
+    });
+    $('.media-text-slider').slick({
+        dots : false,
+        infinite: true,
+        arrows : false,
+        fade : true,
+        asNavFor : '.gallery-slider'
+    });
     $('.slider-for').slick({
          slidesToShow: 1,
          slidesToScroll: 1,

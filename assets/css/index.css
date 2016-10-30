@@ -199,7 +199,8 @@ div[class*='row-']{
     height: 35px;
 }
 .separator2{
-    height: 95px;
+    margin-top: 25px;
+    height: 65px;
 }
 .video-text-heading{
     color: white;
@@ -566,6 +567,9 @@ a.artikel-active:focus{
     transform: translate(-50%,-50%);
     opacity: 0;
     transition: all 0.3s ease-in-out;
+}
+.gallery-container{
+    -webkit-box-shadow: 11px 10px 21px -4px rgba(125,125,125,0.84);
 }
 .gallery-wrap a{
     position: absolute;

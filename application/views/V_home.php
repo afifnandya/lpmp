@@ -525,7 +525,7 @@
             showHideOpacity: true,
             getThumbBoundsFn: function(index) {
                 // find thumbnail element
-                var thumbnail = $(".gallery-item")[index];
+                var thumbnail = $(".gallery-slider")[0];
                 // get window scroll Y
                 var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
                 // optionally get horizontal scroll

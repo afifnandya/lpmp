@@ -33,7 +33,7 @@
                         <div class="col-xs-3 no-padding-left"><span>List Artikel</span></div>
                         <div id="custom-search-input" class="col-xs-6">
                             <div class="input-group search-bar">
-                                <input type="text" class="form-control search" placeholder="Cari..." />
+                                <input type="text" class="form-control search" placeholder="Cari berdasarkan Judul,Sub Judul,Katergori,Editor" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-info" type="button">
                                         <i class="fa fa-search"></i>
@@ -92,6 +92,7 @@
                                     } ?>
                                 </td>
                                 <td class="aksi-row">
+                                    <a href="<?php echo site_url('admin/artikel/lihat/').$data['uuid'] ?>" data-toggle="tooltip" data-placement="bottom" title="Lihat"><i class="fa fa-eye"></i></a>
                                     <a href="<?php echo site_url('admin/artikel/edit/').$data['uuid'] ?>" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
                                     <a data-toggle="tooltip" data-placement="bottom" data-id-artikel="<?php echo $data['uuid'] ?>" title="Hapus" class="action-link"><i class="fa fa-trash-o"></i></a>
                                 </td>

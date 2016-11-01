@@ -35,6 +35,12 @@ class Admin extends CI_Controller {
 				$data['artikel'] = $this->M_artikel->getArtikel($this->uri->segment(4),"0");
 				$this->load->view('admin/V_admin_artikel_edit',$data);
 			}
+			elseif($this->uri->segment(3) == "lihat" and $this->uri->segment(4)){
+				$this->load->model('M_artikel');
+				$this->load->model('M_kategori');
+				$data['artikel'] = $this->M_artikel->getArtikel($this->uri->segment(4),"0");
+				$this->load->view('admin/V_admin_artikel_lihat',$data);
+			}
 			else{
 				show_404();
 			}
@@ -64,7 +70,7 @@ class Admin extends CI_Controller {
 		print_r($_POST);
 		$this->M_artikel->insert(array(
 			'uuid'      => substr(md5(mt_rand(10,100)), 0, 7),
-			'datetime'	=> date("Y-m-d H:i:s"),
+			'datetime'	=> $datetime,
 			'judul'     => $judul,
 			'subjudul'  => $subjudul,
 			'isi'       => $isi,
@@ -78,24 +84,21 @@ class Admin extends CI_Controller {
 	public function artikel_edit(){
 		$this->load->model("M_artikel");
 		date_default_timezone_set("Asia/Bangkok");
-		if((isset($_FILES["icon"]["size"]) && ($_FILES["icon"]["size"] > 0))){
-			$icon_location = "assets/img/artikel/";
-			$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
-			move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file);
-			$icon = $icon_file;
-		}
-		else{
-			$icon = $this->input->post("iconShadow");
-		}
 		$session = $this->session->userdata("admin");
 		$editor = $session[0]['username'];
-		$datetime = date("Y-m-d H:i:s");
 		$uuid = $this->input->post("uuidShadow");
+		$datetime = date("Y-m-d H:i:s");
 		$judul = $this->input->post("judul");
 		$subjudul = $this->input->post("subjudul");
 		$isi = $this->input->post("shadowArtikel");
 		$kategori = $this->input->post("kategori");
 		$publish = $this->input->post("publish");
+		if($this->input->post("icon")){
+			$icon = substr($this->input->post("icon"),32);
+		}
+		else{
+			$icon = $this->input->post("iconShadow");
+		}
 		$this->M_artikel->edit(array(
 			'uuid'		=> $uuid,
 			'datetime'	=> $datetime,

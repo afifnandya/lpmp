@@ -428,7 +428,7 @@ a.artikel-active:focus{
 .artikel-hot-caption{
     position: absolute;
     left: 10px;
-    bottom: 0px;
+    bottom: 5px;
     color: #cecece;
     font-weight: 500;
 }

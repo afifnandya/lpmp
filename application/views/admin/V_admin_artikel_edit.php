@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="<?php echo base_url('/assets/css/admin.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sweetalert2.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('/assets/css/dataurl.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/css/cropper.min.css')?>">
     <script type="text/javascript" src="<?php echo base_url('/assets/js/pace.min.js') ?>"></script>
     <script src='<?php echo base_url().'assets/tinymce/tinymce.min.js'?>'></script>
     <script>
     tinymce.init({
       selector: 'textarea',
+      theme: "modern",
       content_css : '<?php echo base_url().'assets/css/index.css' ?>,<?php echo base_url().'assets/css/bootstrap.min.css'?>',
-//      inline:true,
       plugins: [
         'advlist autolink lists link image charmap print preview anchor','searchreplace visualblocks code fullscreen',
         'insertdatetime media table contextmenu paste code responsivefilemanager save autoresize'
@@ -31,25 +32,20 @@
       filemanager_title:"Responsive Filemanager" ,
       external_plugins: { "filemanager" :"<?php echo base_url().'file_manager/filemanager/plugin.min.js'?>"}
     });
+
     </script>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="padding:0">
       <!--header-->
       <?php $this->load->view("admin/V_admin_header") ?>
-      <!--end header-->
       <!-- Left side -->
       <?php $this->load->view("admin/V_admin_left-side") ?>
-      <!--end left side-->
-      <!-- Content Wrapper. Contains page content -->
+      <!-- Contains page content -->
       <div class="content-wrapper">
         <!-- Main content -->
         <section class="">
           <div class="row">
-            <div class="col-xs-1"></div>
-
-            <div class="col-xs-1"></div>
-            <div class="clearfix"></div>
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
                 <div class="artikel-list col-xs-12 no-padding">
@@ -60,7 +56,7 @@
                         <div class="col-xs-4 left-list-body">
                             <div>
                                 <div class="artikel-img-preview-wrap">
-                                    <img src="<?php echo base_url().$artikel[0]['icon']?>" class="img-responsive" id="imgPreview">
+                                    <img src="<?php echo base_url('').$artikel[0]['icon'] ?>" class="img-responsive" id="imgPreview">
                                     <div class="artikel-img-preview">
                                         <span class="article-btn-wrap">
                                             <button class="icon-article-btn btn btn-info"><i class="fa fa-upload" aria-hidden="true"></i>Pilih Icon</button>
@@ -69,6 +65,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- untuk submit gambar icon -->
                             <form action="" method="post" id="gambar-artikel" enctype="multipart/form-data">
                                 <div class="input-group hidden">
                                     <span class="input-group-btn">
@@ -80,8 +77,7 @@
                                 <input type="submit" class="hidden">
                             </form>
                         </div>
-                        <form action="" method="post" id="form-artikel-edit" enctype="multipart/form-data">
-                        <input type="hidden" name="iconShadow" class="input-right" value="<?php echo $artikel[0]['icon'] ?>">
+                        <form action="" method="post" id="form-artikel" enctype="multipart/form-data">
                         <input type="hidden" name="uuidShadow" value="<?php echo $artikel[0]["uuid"] ?>">
                         <div class="col-xs-8 right-list-body">
                                 <div class="input-group">
@@ -144,15 +140,38 @@
                 </div>
             </div>
             <div class="col-xs-1"></div>
-          </div><!-- /.row (main row) -->
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-    </div><!-- ./wrapper -->
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Modal -->
+    <form action="" method="post" id="formCropGambar" enctype="multipart/form-data">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <img src="" id="imgReadyCrop">
+            <input type="submit" class="hidden">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary getCropButton">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
     <script src="<?php echo base_url('assets/js/sweetalert2.min.js')?>"></script>
     <script src="<?php echo base_url('assets/js/style-input-file.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/canvas-to-blob.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/cropper.min.js')?>"></script>
     <script src="<?php echo base_url('assets/js/app.js')?>"></script>
     <script>
     $('.btn-info').click(function(e){
@@ -164,6 +183,7 @@
     });
     $('#mceu_35').css("border-right","1px solid");
     $('#file').change(function(){
+        // Fungsi Ajax untuk upload gambar ke server dan menampilkan modal untuk crop gambar
         $("#gambar-artikel").submit(function(e){
             var image = $('#imgReadyCrop');
             var cropBoxData;
@@ -182,7 +202,7 @@
                     $('#imgPreview').attr('src',gambar+berhasil);
                     $('#myModal').modal({
                         backdrop : 'static',
-                        keyboard : false,
+                        keyboard : true,
                     });
                     $('#myModal').on('shown.bs.modal', function () {
                     image.cropper({
@@ -200,8 +220,10 @@
                 }
             });
         });
+        //Submit form dan upload gambar ukuran asli ke server (user memilih tidak ngeCrop)
         $("#gambar-artikel").find('input[type=submit]').click();
     });
+    //Submit form dan upload gambar hasil crop ke server (user memilih tidak ngeCrop)
     $("#formCropGambar").submit(function(e){
         e.preventDefault();
         var cropcanvas = $('#imgReadyCrop').cropper('getCroppedCanvas');
@@ -226,7 +248,7 @@
     $(document).ready(function(){
         var height = $(".main-sidebar").height();
         $(".content-wrapper").css("height",height);
-        $("#form-artikel-edit").submit(function(event){
+        $("#form-artikel").submit(function(event){
             event.preventDefault();
             $("#mceu_56").css("display","none");
             $('#shadowArtikel').val(tinyMCE.get('isiArtikel').getContent());
@@ -245,7 +267,8 @@
                     contentType: false,
                     processData: false,
                     success : function(berhasil){
-                        swal('Berhasil Megedit Artikel','','success').then(function() {
+                        // alert(berhasil);
+                        swal('Berhasil Menyimpan Artikel','','success').then(function() {
                             window.location='<?php echo site_url('admin/artikel') ?>';
                         });
                     }

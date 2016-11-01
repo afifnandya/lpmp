@@ -65,6 +65,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- untuk submit gambar icon -->
                             <form action="" method="post" id="gambar-artikel" enctype="multipart/form-data">
                                 <div class="input-group hidden">
                                     <span class="input-group-btn">
@@ -137,7 +138,7 @@
             <h4 class="modal-title" id="myModalLabel">Modal title</h4>
           </div>
           <div class="modal-body">
-            <img src="<?php echo base_url('assets/img/aw.jpg'); ?>" id="imgReadyCrop">
+            <img src="" id="imgReadyCrop">
             <input type="submit" class="hidden">
           </div>
           <div class="modal-footer">
@@ -166,6 +167,7 @@
     });
     $('#mceu_35').css("border-right","1px solid");
     $('#file').change(function(){
+        // Fungsi Ajax untuk upload gambar ke server dan menampilkan modal untuk crop gambar
         $("#gambar-artikel").submit(function(e){
             var image = $('#imgReadyCrop');
             var cropBoxData;
@@ -184,7 +186,7 @@
                     $('#imgPreview').attr('src',gambar+berhasil);
                     $('#myModal').modal({
                         backdrop : 'static',
-                        keyboard : false,
+                        keyboard : true,
                     });
                     $('#myModal').on('shown.bs.modal', function () {
                     image.cropper({
@@ -202,8 +204,10 @@
                 }
             });
         });
+        //Submit form dan upload gambar ukuran asli ke server (user memilih tidak ngeCrop)
         $("#gambar-artikel").find('input[type=submit]').click();
     });
+    //Submit form dan upload gambar hasil crop ke server (user memilih tidak ngeCrop)
     $("#formCropGambar").submit(function(e){
         e.preventDefault();
         var cropcanvas = $('#imgReadyCrop').cropper('getCroppedCanvas');

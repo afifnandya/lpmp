@@ -172,21 +172,21 @@
     $('#artikel-collapse').on('hide.bs.collapse',function(){
         $(".left-link i.fa-angle-down").removeClass("secondmenu-active");
     });
-    var uri1 = "<?php $uri = explode("/",uri_string());echo $uri['1'];?>";
-    var uri2 = "<?php $uri = explode("/",uri_string());echo $uri['2'];?>";
-    $(".left-link").each(function(){
-        if($(this).text().toUpperCase() == uri1.toUpperCase()){
-            var menu_collpase = "#"+uri1+"-collapse";
-            $(menu_collpase).addClass("in");
-            $(this).addClass("active");
-            $(this).siblings().removeClass("active");
-        }
-    });
-    $(".left-link-2").each(function(){
-        if($(this).text().toUpperCase() == uri2.toUpperCase()){
-            $(this).addClass("active2");
-        }
-    });
+    // var uri1 = "<?php $uri = explode("/",uri_string());echo $uri['1'];?>";
+    // var uri2 = "<?php $uri = explode("/",uri_string());echo $uri['2'];?>";
+    // $(".left-link").each(function(){
+    //     if($(this).text().toUpperCase() == uri1.toUpperCase()){
+    //         var menu_collpase = "#"+uri1+"-collapse";
+    //         $(menu_collpase).addClass("in");
+    //         $(this).addClass("active");
+    //         $(this).siblings().removeClass("active");
+    //     }
+    // });
+    // $(".left-link-2").each(function(){
+    //     if($(this).text().toUpperCase() == uri2.toUpperCase()){
+    //         $(this).addClass("active2");
+    //     }
+    // });
     </script>
   </body>
 </html>

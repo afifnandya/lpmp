@@ -26,7 +26,9 @@ class Admin extends CI_Controller {
 				$this->load->view('admin/V_admin_artikel_list',$data);
 			}
 			elseif($this->uri->segment(3) == "buat"){
-				$this->load->view('admin/V_admin_artikel_buat');
+				$this->load->model('M_kategori');
+				$data['kategori'] = $this->M_kategori->getKategori("");
+				$this->load->view('admin/V_admin_artikel_buat',$data);
 			}
 			elseif($this->uri->segment(3) == "edit" and $this->uri->segment(4)){
 				$this->load->model('M_artikel');
@@ -49,14 +51,39 @@ class Admin extends CI_Controller {
 			redirect('login');
 		}
 	}
+	public function gambar(){
+		$icon_location = "assets/img/artikel/";
+		$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
+		if(move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file)){
+			echo $icon_file;
+		}
+		else {
+			print_r($_FILES);
+		}
+	}
+	public function gambarCrop(){
+		$this->load->helper('path');
+		$filename = $_POST['filename'];
+		$img = $_POST['pngimageData'];
+		$lokasi = "assets/img/artikel/";
+		$img = str_replace('data:image/jpeg;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		$file = $lokasi."Crop-".$filename;
+		$lokasi_hasil_crop = base_url().$file;
+		$success = file_put_contents($file, $data);
+		if($success){
+			echo $lokasi_hasil_crop;
+		}
+		else{
+			echo "Gagal menyimpan hasil crop";
+		}
+	}
 	public function artikel_submit(){
 		$this->load->model("M_artikel");
 		date_default_timezone_set("Asia/Bangkok");
 		$session = $this->session->userdata("admin");
 		$editor = $session[0]['username'];
-		// $icon_location = "assets/img/artikel/";
-		// $icon_file = $icon_location.basename($_FILES["icon"]["name"]);
-		// move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file);
 		$uuid = substr(md5(mt_rand(10,100)), 0, 7);
 		$datetime = date("d-m-Y H:i:s");
 		$judul = $this->input->post("judul");
@@ -64,13 +91,13 @@ class Admin extends CI_Controller {
 		$isi = $this->input->post("shadowArtikel");
 		$kategori = $this->input->post("kategori");
 		$publish = $this->input->post("publish");
-		$icon = substr($this->input->post("icon"),32);
-		// $icon = $icon_file;
 		$hapus = 0;
-		print_r($_POST);
+		$panjang_base_url = strlen(base_url());
+		$icon = substr($this->input->post("icon"),$panjang_base_url);
+		// print_r($_POST);
 		$this->M_artikel->insert(array(
 			'uuid'      => substr(md5(mt_rand(10,100)), 0, 7),
-			'datetime'	=> $datetime,
+			'datetime'	=> date("Y-m-d H:i:s"),
 			'judul'     => $judul,
 			'subjudul'  => $subjudul,
 			'isi'       => $isi,
@@ -86,19 +113,15 @@ class Admin extends CI_Controller {
 		date_default_timezone_set("Asia/Bangkok");
 		$session = $this->session->userdata("admin");
 		$editor = $session[0]['username'];
-		$uuid = $this->input->post("uuidShadow");
 		$datetime = date("Y-m-d H:i:s");
+		$uuid = $this->input->post("uuidShadow");
 		$judul = $this->input->post("judul");
 		$subjudul = $this->input->post("subjudul");
 		$isi = $this->input->post("shadowArtikel");
 		$kategori = $this->input->post("kategori");
 		$publish = $this->input->post("publish");
-		if($this->input->post("icon")){
-			$icon = substr($this->input->post("icon"),32);
-		}
-		else{
-			$icon = $this->input->post("iconShadow");
-		}
+		$panjang_base_url = strlen(base_url());
+		$icon = substr($this->input->post("icon"),$panjang_base_url);
 		$this->M_artikel->edit(array(
 			'uuid'		=> $uuid,
 			'datetime'	=> $datetime,
@@ -110,6 +133,7 @@ class Admin extends CI_Controller {
 			'publish'   => $publish,
 			'editor'    => $editor
 		));
+		// print_r($_POST);
 	}
 	public function artikel_delete(){
 		$this->load->model("M_artikel");
@@ -233,36 +257,5 @@ class Admin extends CI_Controller {
 		$this->load->model("M_user");
 		$username = $this->input->post('username');
 		$this->M_user->deleteUser($username);
-	}
-	public function gambar(){
-		$icon_location = "assets/img/artikel/temp/";
-		$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
-		if(move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file)){
-			echo $icon_file;
-		}
-		else {
-			print_r($_FILES);
-		}
-	}
-	public function gambarCrop(){
-		$this->load->helper('path');
-		$filename = $_POST['filename'];
-		$img = $_POST['pngimageData'];
-		$lokasi = "assets/img/artikel/temp/";
-		$lokasiBaru = "assets/img/artikel/";
-		$img = str_replace('data:image/jpeg;base64,', '', $img);
-		$img = str_replace(' ', '+', $img);
-		$data = base64_decode($img);
-		$file = $lokasi."Crop-".$filename;
-		$fileBaru = $lokasiBaru."Crop-".$filename;
-		$success = file_put_contents($file, $data);
-		$lokasi_hasil_crop = base_url().$file;
-		copy($file,$fileBaru);
-		if($success){
-			echo $lokasi_hasil_crop;
-		}
-		else{
-			echo "Gagal menyimpan hasil crop";
-		}
 	}
 }

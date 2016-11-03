@@ -2,9 +2,9 @@
     background-color: white;
 }
 .modal .modal-dialog {
-  width: 100%;
+  width: 70%;
 }
-img#tes{
+img#imgReadyCrop{
     max-width: 100% !important;
 }
 .no-padding{
@@ -73,8 +73,8 @@ th[class*='-column']{
     padding: 25px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     position: relative;
 }
 .artikel-list-body{
@@ -83,7 +83,7 @@ th[class*='-column']{
 .artikel-list-header{
     margin-bottom: 10px;
     border-bottom: 1px solid #dadada;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 .artikel-list-header span,.control-header span{
     font-size: 20px;

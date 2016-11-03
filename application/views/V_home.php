@@ -183,7 +183,34 @@
                     <div class="artikel-header-underline pengetahuan-header-underline"></div>
                 </div>
                 <div class="artikel-body">
+                    <?php foreach ($artikel_jembatan_pengetahuan as $data) {
+                    ?>
                     <a href="#" class="artikel-link">
+                        <div class="col-xs-12 jembatan-pengetahuan-item no-padding">
+                            <div class="col-xs-12 col-md-4 no-padding-left">
+                                <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-xs-12 col-md-8 no-padding">
+                                <div class="jembatan-pengetahuan-item-title artikel-title"><?php echo $data['judul'] ?></div>
+                                <div class="jembatan-pengetahuan-item-sub-title"><?php echo $data['subjudul'] ?></div>
+                                <div class="jembatan-pengetahuan-item-sub-title-2">SMKN 2 Malang</div>
+                                <div class="jembatan-pengetahuan-item-text">
+                                    <?php
+                                    $string = strip_tags($data['isi']);
+                                    if (strlen($string) > 200) {
+                                        $stringCut = substr($string, 0,200);
+                                        echo $stringCut;
+                                    }
+                                    else{
+                                        echo $string;
+                                    }
+                                     ?>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <?php } ?>
+                    <!-- <a href="#" class="artikel-link">
                         <div class="col-xs-12 jembatan-pengetahuan-item no-padding">
                             <div class="col-xs-12 col-md-4 no-padding-left">
                                 <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
@@ -208,26 +235,13 @@
                                 <div class="jembatan-pengetahuan-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit tempore repellendus provident nam laudantium vero ab. Totam nihil, beatae earum ipsa illum ratione, ipsum quasi, repudiandae reiciendis sed nemo.</div>
                             </div>
                         </div>
-                    </a>
-                    <a href="#" class="artikel-link">
-                        <div class="col-xs-12 jembatan-pengetahuan-item no-padding">
-                            <div class="col-xs-12 col-md-4 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-xs-12 col-md-8 no-padding">
-                                <div class="jembatan-pengetahuan-item-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="jembatan-pengetahuan-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="jembatan-pengetahuan-item-sub-title-2">SMKN 2 Malang</div>
-                                <div class="jembatan-pengetahuan-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit tempore repellendus provident nam laudantium vero ab. Totam nihil, beatae earum ipsa illum ratione, ipsum quasi, repudiandae reiciendis sed nemo.</div>
-                            </div>
-                        </div>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class="col-xs-12 col-md-4 no-padding-responsive">
                 <div class="artikel-header">
                     <div class="artikel-header buku-header">
-                        <span class="artikel-header-judul">Jembatan Pengetahuan</span>
+                        <span class="artikel-header-judul">Jurnal Inspirasi</span>
                         <div class="artikel-header-underline buku-header-underline"></div>
                     </div>
                 </div>

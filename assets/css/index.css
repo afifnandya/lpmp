@@ -449,8 +449,11 @@ a.artikel-active:focus{
 }
 .artikel-normal ul li{
     border-bottom: 1px solid #eaeaea;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.artikel-normal ul li:first-child{
+    margin-top: 5px;
 }
 .artikel-normal li:before{
     content: "\f105";
@@ -468,7 +471,11 @@ a.artikel-active:focus{
 .artikel-normal a{
     position: relative;
     left: 10px;
-    color: #7b7b7b !important;
+    color: #2b2b2b;
+    opacity: 0.8;
+}
+.artikel-normal a:hover{
+    opacity: 1;
 }
 .artikel-normal ul li.lihat-semua a{
     position: static;
@@ -552,7 +559,7 @@ a.artikel-active:focus{
 }
 .jembatan-pengetahuan-item-text{
     text-decoration: none !important;
-    color: black;
+    color: #3a3a3a;
 }
 /*Bagian Gallery*/
 .gallery-wrap{

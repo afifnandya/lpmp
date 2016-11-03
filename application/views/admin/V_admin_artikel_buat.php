@@ -96,10 +96,12 @@
                                         <span class="btn btn-default">Kategori</span>
                                       </span>
                                     <select name="kategori" class="form-control" required>
-                                        <option selected disabled="">Pilih Kategori</option>
-                                        <option value="1">Hidup Guruku</option>
-                                        <option value="2">Kabar Sepekan</option>
-                                        <option value="3">Inside School</option>
+                                        <?php foreach($kategori as $data_kategori){
+                                            $id = $data_kategori['id'];
+                                            $nama_kategori = $data_kategori['nama'];
+                                        ?>
+                                        <option value="<?php echo $id ?>"><?php echo $nama_kategori ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="input-group">
@@ -138,8 +140,10 @@
             <h4 class="modal-title" id="myModalLabel">Modal title</h4>
           </div>
           <div class="modal-body">
-            <img src="" id="imgReadyCrop">
-            <input type="submit" class="hidden">
+              <div>
+                  <img src="" id="imgReadyCrop">
+                  <input type="submit" class="hidden">
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -186,11 +190,12 @@
                     $('#imgPreview').attr('src',gambar+berhasil);
                     $('#myModal').modal({
                         backdrop : 'static',
-                        keyboard : true,
+                        keyboard : false,
                     });
                     $('#myModal').on('shown.bs.modal', function () {
                     image.cropper({
-                      autoCropArea: 0.5,
+                      autoCropArea: 0.7,
+                      aspectRatio : 4/3,
                       built: function () {
                         image.cropper('setCanvasData', canvasData);
                         image.cropper('setCropBoxData', cropBoxData);

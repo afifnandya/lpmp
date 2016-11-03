@@ -206,7 +206,8 @@
                     });
                     $('#myModal').on('shown.bs.modal', function () {
                     image.cropper({
-                      autoCropArea: 0.5,
+                      autoCropArea: 0.7,
+                      aspectRatio : 4/3,
                       built: function () {
                         image.cropper('setCanvasData', canvasData);
                         image.cropper('setCropBoxData', cropBoxData);

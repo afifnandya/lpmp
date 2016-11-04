@@ -1,6 +1,6 @@
 @media (max-width: 768px){
   .guruku-judul-utama{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 0px;
   }
@@ -48,5 +48,8 @@
   .guruku-detail-gambar img{
     margin-bottom: 10px;
     height: auto;
+  }
+  .artikel-isi{
+    text-align: justify;
   }
 }

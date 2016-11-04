@@ -33,33 +33,23 @@
   <!-- content -->
   <div class="container">
       <div class="col-md-1"></div>
-      <div class="col-col-xs-12 col-md-10">
+      <div class="col-col-xs-12 col-md-12">
           <ol class="breadcrumb crumb">
               <li><a href="<?php echo site_url('home') ?>">Beranda</a></li>
               <li><a href="<?php echo site_url('artikel')."/".$this->uri->segment(2) ?>"><?php echo $this->uri->segment(2); ?></a></li>
               <li class="active"><?php echo $this->uri->segment(3) ?></li>
           </ol>
-          <div class="col-xs-12 col-md-9 guruku-detail-gambar">
+          <div class="col-xs-12 col-md-12 guruku-detail-gambar">
               <p class="guruku-judul-utama"><a href=""><?php echo $artikel[0]['judul'] ?></a></p>
               <p class="guruku-tanggal"><?php echo $artikel[0]['subjudul'] ?></p>
+              <center>
               <img src="<?php echo base_url().$artikel[0]['icon'] ?>" class="img-responsive" alt="">
+              </center>
               <div class="artikel-isi"><?php echo $artikel[0]['isi']?></div>
           </div>
-          <div class="col-xs-12 col-md-3 guruku-berita-populer">
-              <div class="col-xs-12">
-                  <p class="guruku-populer">Berita Terpopuler</p>
-              </div>
-              <?php foreach($artikel_by_kategori as $list_kategori){ ?>
-              <div class="col-xs-12 guruku-garis"></div>
-                <div class="col-xs-12 guruku-daftar-populer">
-                    <img src="<?php echo base_url().$list_kategori['icon'] ?>" class="img-responsive" alt="">
-                    <p class="guruku-judul-berita2"><a href="<?php echo site_url('artikel')."/".$this->uri->segment(2)."/".preg_replace('/[^a-zA-Z0-9]/',"-",$list_kategori['judul']); ?>"><?php echo $list_kategori['judul'] ?></a></p>
-                    <p class="guruku-tanggal"><?php echo $list_kategori['subjudul'] ?></p>
-                </div>
-              <?php } ?>
-          </div>
+
       </div>
-      <div class="col-md-1"></div>
+
   </div>
   <!-- end content -->
   <!-- footer -->

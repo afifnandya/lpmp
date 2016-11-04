@@ -48,9 +48,9 @@
                         <div class="col-xs-12 col-md-8 head-line-hot no-padding headline-slider-for">
                             <?php foreach ($artikel_headline as $data) {
                             ?>
-                            <a href="#" class="artikel-link">
+                            <a href="<?php echo site_url('artikel/headline')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$data['judul']) ?>" class="artikel-link headline-hot-link">
                                 <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
-                                <div class="head-line-hot-text">
+                                <div class="head-line-hot-text hvr-sweep-to-right">
                                     <span class="judul"><?php echo $data['judul'] ?></span><br>
                                     <span class="sub-judul"><?php echo $data['subjudul'] ?></span>
                                 </div>
@@ -133,7 +133,7 @@
                 <div class="artikel-body">
                     <?php foreach ($artikel_jembatan_pengetahuan as $data) {
                     ?>
-                    <a href="#" class="artikel-link">
+                    <a href="<?php echo site_url('artikel/jembatan-pengetahuan')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$data['judul']) ?>" class="artikel-link">
                         <div class="col-xs-12 jembatan-pengetahuan-item no-padding">
                             <div class="col-xs-12 col-md-4 no-padding-left">
                                 <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
@@ -170,7 +170,7 @@
                 <div class="artikel-body">
                     <?php foreach ($artikel_jurnal_inspirasi as $data) {
                     ?>
-                    <a href="#" class="artikel-link">
+                    <a href="<?php echo site_url('artikel/jurnal-inspirasi')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$data['judul']) ?>" class="artikel-link">
                         <div class="col-xs-12 jurnal-inspirasi-item no-padding">
                             <div class="col-xs-5 no-padding-left">
                                 <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
@@ -368,6 +368,9 @@
     <script src="<?php echo base_url()?>assets/js/photoswipe.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/photoswipe-ui-default.min.js"></script>
     <script>
+    $(".head-line-side a").hover(function(){
+        $(this).click();
+    });
     var height_head_line_hot = $(".head-line-hot img").height()/4;
     var height = $("#2-kolom").height()/4;
     var height2 = $("#2-kolom").height()/3;

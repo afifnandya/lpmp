@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                <div class="col-xs-12 push-down"></div>
-                <div class="col-xs-4">
+                <div class="col-xs-12">
                     <h3>Header Link</h3>
                     <ul>
                         <li> <a href="#">Link</a> </li>
@@ -11,7 +11,7 @@
                         <li> <a href="#">Link</a> </li>
                     </ul>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-12">
                     <h3>Header Link</h3>
                     <ul>
                         <li> <a href="#">Link</a> </li>
@@ -19,7 +19,7 @@
                         <li> <a href="#">Link</a> </li>
                     </ul>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-12">
                     <h3>Header Link</h3>
                     <ul>
                         <li> <a href="#">Link</a> </li>
@@ -27,7 +27,7 @@
                         <li> <a href="#">Link</a> </li>
                     </ul>
                 </div>
-                <div class="col-xs-4 col-xs-offset-2">
+                <div class="col-xs-12">
                     <h3>Header Link</h3>
                     <ul>
                         <li> <a href="#">Link</a> </li>
@@ -35,7 +35,7 @@
                         <li> <a href="#">Link</a> </li>
                     </ul>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-12">
                     <h3>Header Link</h3>
                     <ul>
                         <li> <a href="#">Link</a> </li>

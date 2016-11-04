@@ -45,85 +45,33 @@
                         <div class="artikel-header-underline"></div>
                     </div>
                     <div class="artikel-body">
-                        <div class="col-xs-12 col-md-8 head-line-hot no-padding slider-for">
+                        <div class="col-xs-12 col-md-8 head-line-hot no-padding headline-slider-for">
+                            <?php foreach ($artikel_headline as $data) {
+                            ?>
                             <a href="#" class="artikel-link">
-                                <img src="<?php echo base_url()?>assets/img/1.jpg" alt="" class="img-responsive">
+                                <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
                                 <div class="head-line-hot-text">
-                                    <span class="judul">Melihat Sekolah Bagi Anak WNI di Ladang Sawit di Malaysia</span><br>
-                                    <span class="sub-judul">asasas</span>
+                                    <span class="judul"><?php echo $data['judul'] ?></span><br>
+                                    <span class="sub-judul"><?php echo $data['subjudul'] ?></span>
                                 </div>
                             </a>
-                            <a href="#" class="artikel-link">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                                <div class="head-line-hot-text">
-                                    <span class="judul">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</span><br>
-                                    <span class="sub-judul">asasas</span>
-                                </div>
-                            </a>
-                            <a href="#" class="artikel-link">
-                                <img src="<?php echo base_url()?>assets/img/3.jpg" alt="" class="img-responsive">
-                                <div class="head-line-hot-text">
-                                    <span class="judul">Mendikbud Akan Masukkan Bahaya Rokok ke Dalam Materi Pendidikan Dasar</span><br>
-                                    <span class="sub-judul">asasas</span>
-                                </div>
-                            </a>
-                            <a href="#" class="artikel-link">
-                                <img src="<?php echo base_url()?>assets/img/4.jpg" alt="" class="img-responsive">
-                                <div class="head-line-hot-text">
-                                    <span class="judul">Mendikbud Akan Masukkan Bahaya Rokok ke Dalam Materi Pendidikan Dasar</span><br>
-                                    <span class="sub-judul">asasas</span>
-                                </div>
-                            </a>
+                            <?php } ?>
                         </div>
-                        <div class="col-xs-12 col-md-4 head-line-side no-padding-right slider-nav">
-                            <a href="#" class="artikel-link artikel-active">
+                        <div class="col-xs-12 col-md-4 head-line-side no-padding-right headline-slider-nav">
+                            <?php foreach ($artikel_headline as $key=>$data) {
+                            ?>
+                            <a href="#" class="artikel-link <?php if($key==0){echo "artikel-active"; } ?>">
                                 <div class="col-xs-12 head-line-side-item no-padding">
                                     <div class="col-xs-5 no-padding-left">
-                                        <img src="<?php echo base_url()?>assets/img/1.jpg" alt="" class="img-responsive">
+                                        <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
                                     </div>
                                     <div class="col-xs-7 no-padding">
-                                        <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                        <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                        <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
+                                        <div class="head-line-side-item-title artikel-title artikel-title"><?php echo $data['judul'] ?></div>
+                                        <div class="head-line-side-item-sub-title"><?php echo $data['subjudul'] ?></div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" class="artikel-link">
-                                <div class="col-xs-12 head-line-side-item no-padding">
-                                    <div class="col-xs-5 no-padding-left">
-                                        <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="col-xs-7 no-padding">
-                                        <div class="head-line-side-item-title artikel-title artikel-title">Mendikbud Akan Masukkan Bahaya Rokok ke Dalam Materi Pendidikan Dasar</div>
-                                        <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                        <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="artikel-link">
-                                <div class="col-xs-12 head-line-side-item no-padding">
-                                    <div class="col-xs-5 no-padding-left">
-                                        <img src="<?php echo base_url()?>assets/img/3.jpg" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="col-xs-7 no-padding">
-                                        <div class="head-line-side-item-title artikel-title artikel-title">Mendikbud Minta Masukan Nasyiatul Aisyiyah soal Pendidikan Dasar dan PAUD</div>
-                                        <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                        <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="artikel-link">
-                                <div class="col-xs-12 head-line-side-item no-padding">
-                                    <div class="col-xs-5 no-padding-left">
-                                        <img src="<?php echo base_url()?>assets/img/4.jpg" alt="" class="img-responsive">
-                                    </div>
-                                    <div class="col-xs-7 no-padding">
-                                        <div class="head-line-side-item-title artikel-title artikel-title">Cegah Tumbuhnya Paham Radikal, Kemhan Ajak 1.000 Ulama Ikuti Bela Negara</div>
-                                        <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                        <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
-                                    </div>
-                                </div>
-                            </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -175,9 +123,9 @@
             <div class="col-md-1"></div>
         </div>
         <div class="col-xs-12 separator"></div>
-        <div class="col-xs-12 no-padding" id="pengetahuan">
+        <div class="col-xs-12 no-padding" id="2-kolom">
             <div class="col-md-1 no-padding"></div>
-            <div class="col-xs-12 col-md-6 no-padding-responsive">
+            <div class="col-xs-12 col-md-6 no-padding-responsive" id="jembatan-pengetahuan">
                 <div class="artikel-header pengetahuan-header">
                     <span class="artikel-header-judul">Jembatan Pengetahuan</span>
                     <div class="artikel-header-underline pengetahuan-header-underline"></div>
@@ -193,13 +141,13 @@
                             <div class="col-xs-12 col-md-8 no-padding">
                                 <div class="jembatan-pengetahuan-item-title artikel-title"><?php echo $data['judul'] ?></div>
                                 <div class="jembatan-pengetahuan-item-sub-title"><?php echo $data['subjudul'] ?></div>
-                                <div class="jembatan-pengetahuan-item-sub-title-2">SMKN 2 Malang</div>
                                 <div class="jembatan-pengetahuan-item-text">
                                     <?php
                                     $string = strip_tags($data['isi']);
                                     if (strlen($string) > 200) {
-                                        $stringCut = substr($string, 0,200);
-                                        echo $stringCut;
+                                        $stringCut = substr($string, 0, 200);
+                                        $string = substr($stringCut, 0, strrpos($stringCut, ' '));
+                                        echo $string." ... ";
                                     }
                                     else{
                                         echo $string;
@@ -210,35 +158,9 @@
                         </div>
                     </a>
                     <?php } ?>
-                    <!-- <a href="#" class="artikel-link">
-                        <div class="col-xs-12 jembatan-pengetahuan-item no-padding">
-                            <div class="col-xs-12 col-md-4 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-xs-12 col-md-8 no-padding">
-                                <div class="jembatan-pengetahuan-item-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="jembatan-pengetahuan-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="jembatan-pengetahuan-item-sub-title-2">SMKN 2 Malang</div>
-                                <div class="jembatan-pengetahuan-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit tempore repellendus provident nam laudantium vero ab. Totam nihil, beatae earum ipsa illum ratione, ipsum quasi, repudiandae reiciendis sed nemo.</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="artikel-link">
-                        <div class="col-xs-12 jembatan-pengetahuan-item no-padding">
-                            <div class="col-xs-12 col-md-4 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-xs-12 col-md-8 no-padding">
-                                <div class="jembatan-pengetahuan-item-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="jembatan-pengetahuan-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="jembatan-pengetahuan-item-sub-title-2">SMKN 2 Malang</div>
-                                <div class="jembatan-pengetahuan-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit tempore repellendus provident nam laudantium vero ab. Totam nihil, beatae earum ipsa illum ratione, ipsum quasi, repudiandae reiciendis sed nemo.</div>
-                            </div>
-                        </div>
-                    </a> -->
                 </div>
             </div>
-            <div class="col-xs-12 col-md-4 no-padding-responsive">
+            <div class="col-xs-12 col-md-4 no-padding-responsive" id="jurnal-inspirasi">
                 <div class="artikel-header">
                     <div class="artikel-header buku-header">
                         <span class="artikel-header-judul">Jurnal Inspirasi</span>
@@ -246,54 +168,20 @@
                     </div>
                 </div>
                 <div class="artikel-body">
+                    <?php foreach ($artikel_jurnal_inspirasi as $data) {
+                    ?>
                     <a href="#" class="artikel-link">
-                        <div class="col-xs-12 head-line-side-item no-padding">
+                        <div class="col-xs-12 jurnal-inspirasi-item no-padding">
                             <div class="col-xs-5 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
+                                <img src="<?php echo base_url().$data['icon']?>" alt="" class="img-responsive">
                             </div>
                             <div class="col-xs-7 no-padding">
-                                <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
+                                <div class="jurnal-inspirasi-item-title artikel-title"><?php echo $data['judul'] ?></div>
+                                <div class="jurnal-inspirasi-item-sub-title"><?php echo $data['subjudul'] ?></div>
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="artikel-link">
-                        <div class="col-xs-12 head-line-side-item no-padding">
-                            <div class="col-xs-5 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-xs-7 no-padding">
-                                <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="artikel-link">
-                        <div class="col-xs-12 head-line-side-item no-padding">
-                            <div class="col-xs-5 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-xs-7 no-padding">
-                                <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="artikel-link">
-                        <div class="col-xs-12 head-line-side-item no-padding">
-                            <div class="col-xs-5 no-padding-left">
-                                <img src="<?php echo base_url()?>assets/img/2.jpg" alt="" class="img-responsive">
-                            </div>
-                            <div class="col-xs-7 no-padding">
-                                <div class="head-line-side-item-title artikel-title artikel-title">Menpan Punya Cita-cita: PNS Punya Kualitas Lebih Bagus dari Orang Kantoran</div>
-                                <div class="head-line-side-item-sub-title">Ariani Kusumaningrum</div>
-                                <div class="head-line-side-item-sub-title-2">SMKN 2 Malang</div>
-                            </div>
-                        </div>
-                    </a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-md-1 no-padding"></div>
@@ -417,17 +305,17 @@
         <div class="col-xs-12 separator2"></div>
         <div class="col-xs-12 no-padding" id="media2">
             <div class="col-md-1 no-padding"></div>
-            <div class="col-xs-12 col-md-5 no-padding-repsonsive">
+            <div class="col-xs-12 col-md-5 col-md-push-5">
+                <div class="artikel-body">
+                    <iframe src="https://www.youtube.com/embed/uIx0KXLAk14"></iframe>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-5 col-md-pull-5 no-padding-repsonsive">
                 <div class="artikel-body">
                     <div class="artikel-body">
                         <p class="media-heading">Video</p>
                         <p class="media-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-5 ">
-                <div class="artikel-body">
-                    <iframe src="https://www.youtube.com/embed/uIx0KXLAk14"></iframe>
                 </div>
             </div>
             <div class="col-md-1 no-padding"></div>
@@ -480,6 +368,20 @@
     <script src="<?php echo base_url()?>assets/js/photoswipe.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/photoswipe-ui-default.min.js"></script>
     <script>
+    var height_head_line_hot = $(".head-line-hot img").height()/4;
+    var height = $("#2-kolom").height()/4;
+    var height2 = $("#2-kolom").height()/3;
+    if (window.matchMedia('(min-width: 992px)').matches) {
+        $(".head-line-side-item").each(function(){
+            $(this).css("height",height_head_line_hot);
+        });
+        $(".jurnal-inspirasi-item").each(function(){
+            $(this).css("height",height);
+        });
+        $(".jembatan-pengetahuan-item").each(function(){
+            $(this).css("height",height2);
+        });
+    }
     $('.gallery-slider').slick({
         dots : true,
         infinite: true,
@@ -493,21 +395,21 @@
         fade : true,
         asNavFor : '.gallery-slider'
     });
-    $('.slider-for').slick({
+    $('.headline-slider-for').slick({
          slidesToShow: 1,
          slidesToScroll: 1,
          arrows: false,
          fade: true,
-         asNavFor: '.slider-nav'
+         asNavFor: '.headline-slider-nav'
     });
-    $('.slider-nav').slick({
+    $('.headline-slider-nav').slick({
          slidesToShow: 5,
          slidesToScroll: 1,
          vertical : true,
-         asNavFor: '.slider-for',
+         asNavFor: '.headline-slider-for',
          focusOnSelect: true
     });
-    $(".slider-nav a").click(function(e){
+    $(".headline-slider-nav a").click(function(e){
         $(this).addClass("artikel-active");
         if($(this).siblings().hasClass("artikel-active")){
             $(this).siblings().removeClass("artikel-active");

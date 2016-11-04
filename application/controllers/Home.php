@@ -14,6 +14,7 @@ class Home extends CI_Controller {
 		$data['artikel_kabar_sepekan'] = $this->M_artikel->getArtikelByKategori("Kabar Sepekan"," ");
 		$data['artikel_jembatan_pengetahuan'] = $this->M_artikel->getArtikelByKategori("Jembatan Pengetahuan"," ");
 		$data['artikel_jurnal_inspirasi'] = $this->M_artikel->getArtikelByKategori("Jurnal Inspirasi"," ");
+		$data['artikel_headline'] = $this->M_artikel->getArtikelByKategori("Headline"," ");
 		$data['header'] = $this->M_header->getHeader("","1");
 		foreach ($data['header'] as $key => $value) {
 			$artikelById = $this->M_artikel->getArtikel($data['header'][$key]['uuid_artikel'],0);

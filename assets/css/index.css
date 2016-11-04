@@ -340,7 +340,7 @@ a.artikel-active:focus{
     margin-bottom: 15px;
 }
 .artikel-header .artikel-header-judul{
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     color: white;
     padding: 5px;
@@ -518,6 +518,7 @@ a.artikel-active:focus{
     padding-bottom: 10px;
     padding-top: 10px;
     border-bottom: 1px solid #c1c1c1;
+    overflow: hidden;
 }
 .head-line-side a:nth-child(1) .head-line-side-item{
     padding-top: 0;
@@ -545,7 +546,7 @@ a.artikel-active:focus{
     border-bottom: 1px solid #c1c1c1;
 }
 .jembatan-pengetahuan-item-title{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     color: #a90101;
 }
@@ -558,6 +559,30 @@ a.artikel-active:focus{
     font-style: italic;
 }
 .jembatan-pengetahuan-item-text{
+    text-decoration: none !important;
+    color: #3a3a3a;
+}
+/*Bagian Artikel Jembatan Pengetahuan*/
+.jurnal-inspirasi-item{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #c1c1c1;
+    overflow: hidden;
+}
+.jurnal-inspirasi-item-title{
+    font-size: 14px;
+    font-weight: 500;
+    color: #a90101;
+}
+.jurnal-inspirasi-item-sub-title{
+    color: #a8a8a8;
+}
+.jurnal-inspirasi-item-sub-title-2{
+    color: #a8a8a8;
+    font-size: 12px;
+    font-style: italic;
+}
+.jurnal-inspirasi-item-text{
     text-decoration: none !important;
     color: #3a3a3a;
 }

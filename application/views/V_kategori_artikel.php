@@ -18,12 +18,10 @@
 </head>
 <style>
 .first-nav{
-    background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");
+    /*background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");*/
 }
 .zero-nav{
-    width: 100%;
-    height: 15px;
-    background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");
+    /*background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");*/
 }
 </style>
 <body>
@@ -32,78 +30,55 @@
   <!-- end nav -->
     <!-- content -->
     <div class="container">
-        <div class="col-md-1"></div>
-        <div class="col-xs-12 col-md-12">
-            <ol class="breadcrumb crumb">
-                <li><a href="<?php echo site_url('home') ?>">Beranda</a></li>
-                <li><a href="<?php echo site_url('artikel')."/".$this->uri->segment(2) ?>"><?php echo $this->uri->segment(2) ?></a></li>
-            </ol>
-            <p class="col-xs-12 guruku-judul-utama "><a href="<?php echo site_url($this->uri->uri_string())."/".$featured_judul_link ?>"><?php echo $featured_judul?></a></p>
-            <p class="col-xs-12 guruku-tanggal "><?php echo $featured_sub_judul?></p>
-            <div class="col-xs-12 col-md-7 guruku-berita-baru ">
-                <img src="<?php echo base_url().$featured_icon?>" class="img-responsive" alt="">
-            </div>
-            <div class="col-md-5 guruku-cuplikan-berita hidden-xs">
-                <p class="guruku-cuplikan">
-                    <?php
-                        $string = strip_tags($featured_isi);
-                        if (strlen($string) > 300) {
-                            $stringCut = substr($string, 0,300);
-                            echo $stringCut.'<br><a href="'.site_url($this->uri->uri_string())."/".$featured_judul_link.'">selengkapnya...</a>';
-                        }
-                        else{
-                            echo $string;
-                        }
-                    ?>
-                </p>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-xs-12 guruku-berita ">
-                <p>Daftar Berita</p>
-            </div>
-            <?php foreach($artikel as $key => $data){
-                if($key == 0){
-                    continue;
-                }
-             ?>
-                <div class="col-xs-4 col-md-4 guruku-gambar-berita ">
-                    <img src="<?php echo base_url().$data['icon']?>" class="img-responsive" alt="">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-xs-12 col-md-10 detail-artikel-wrap">
+                <ol class="breadcrumb crumb">
+                    <li><a href="<?php echo site_url('home') ?>">Beranda</a></li>
+                    <li><a href="<?php echo site_url('artikel')."/".$this->uri->segment(2) ?>"><?php echo $this->uri->segment(2) ?></a></li>
+                </ol>
+                <p class="col-xs-12 guruku-judul-utama "><a href="<?php echo site_url($this->uri->uri_string())."/".$featured_judul_link ?>"><?php echo $featured_judul?></a></p>
+                <p class="col-xs-12 guruku-tanggal "><?php echo $featured_sub_judul?></p>
+                <div class="col-xs-12 col-md-7 guruku-berita-baru ">
+                    <img src="<?php echo base_url().$featured_icon?>" class="img-responsive" alt="">
                 </div>
-                <div class="col-xs-8 col-md-8 guruku-cuplikan-berita2">
-                    <p class="guruku-judul-berita"><a href=""><?php echo $data['judul'] ?></a></p>
-                    <p class="guruku-tanggal-berita"><?php echo $data['subjudul'] ?></p>
-                    <p class="guruku-cuplikan hidden-xs"><?php echo $data['isi'] ?></p>
+                <div class="col-md-5 guruku-cuplikan-berita hidden-xs">
+                    <p class="guruku-cuplikan">
+                        <!-- <?php
+                            $string = strip_tags($featured_isi);
+                            if (strlen($string) > 300) {
+                                $stringCut = substr($string, 0,300);
+                                echo $stringCut.'<br><a href="'.site_url($this->uri->uri_string())."/".$featured_judul_link.'">selengkapnya...</a>';
+                            }
+                            else{
+                                echo $string;
+                            }
+                        ?> -->
+                    </p>
                 </div>
-                <div class="col-xs-12 guruku-garis "></div>
-            <?php } ?>
-            <!-- end content -->
-            <!-- pagination -->
-            <!-- <div class="col-xs-1 col-md-4"></div>
-            <div class="col-md-10 col-md-4">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 guruku-berita ">
+                    <p>Daftar Berita</p>
+                </div>
+                <?php foreach($artikel as $key => $data){
+                    if($key == 0){
+                        continue;
+                    }
+                 ?>
+                     <div class="col-xs-4 col-md-4 guruku-gambar-berita ">
+                         <img src="<?php echo base_url().$data['icon']?>" class="img-responsive" alt="">
+                     </div>
+                     <div class="col-xs-8 col-md-8 guruku-cuplikan-berita2">
+                         <p class="guruku-judul-berita"><a href="<?php echo site_url('artikel/').$this->uri->segment(2)."/".preg_replace('/[^a-zA-Z0-9]/',"-",$data['judul']) ?>"><?php echo $data['judul'] ?></a></p>
+                         <p class="guruku-tanggal-berita"><?php echo $data['subjudul'] ?></p>
+                         <p class="guruku-cuplikan hidden-xs"><?php echo $data['isi'] ?></p>
+                     </div>
+                    <div class="col-xs-12 guruku-garis "></div>
+                <?php } ?>
+                <!-- end content -->
             </div>
-            <div class="col-xs-1 col-md-4"></div> -->
-            <!-- end pagination -->
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
     </div>
     <!-- footer -->
     <?php $this->load->view('footer') ?>

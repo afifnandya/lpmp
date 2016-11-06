@@ -18,12 +18,10 @@
 </head>
 <style>
 .first-nav{
-    background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");
+    /*background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");*/
 }
 .zero-nav{
-    width: 100%;
-    height: 15px;
-    background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");
+    /*background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");*/
 }
 </style>
 <body>
@@ -32,24 +30,26 @@
   <!-- end nav -->
   <!-- content -->
   <div class="container">
-      <div class="col-md-1"></div>
-      <div class="col-col-xs-12 col-md-12">
-          <ol class="breadcrumb crumb">
-              <li><a href="<?php echo site_url('home') ?>">Beranda</a></li>
-              <li><a href="<?php echo site_url('artikel')."/".$this->uri->segment(2) ?>"><?php echo $this->uri->segment(2); ?></a></li>
-              <li class="active"><?php echo $this->uri->segment(3) ?></li>
-          </ol>
-          <div class="col-xs-12 col-md-12 guruku-detail-gambar">
-              <p class="guruku-judul-utama"><a href=""><?php echo $artikel[0]['judul'] ?></a></p>
-              <p class="guruku-tanggal"><?php echo $artikel[0]['subjudul'] ?></p>
-              <center>
-              <img src="<?php echo base_url().$artikel[0]['icon'] ?>" class="img-responsive" alt="">
-              </center>
-              <div class="artikel-isi"><?php echo $artikel[0]['isi']?></div>
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-col-xs-12 col-md-10 detail-artikel-wrap">
+              <ol class="breadcrumb crumb">
+                  <li><a href="<?php echo site_url('home') ?>">Beranda</a></li>
+                  <li><a href="<?php echo site_url('artikel')."/".$this->uri->segment(2) ?>"><?php echo $this->uri->segment(2); ?></a></li>
+                  <li class="active"><?php echo $this->uri->segment(3) ?></li>
+              </ol>
+              <div class="col-xs-12 col-md-12 guruku-detail-gambar">
+                  <p class="guruku-judul-utama"><a href=""><?php echo $artikel[0]['judul'] ?></a></p>
+                  <p class="guruku-tanggal"><?php echo $artikel[0]['subjudul'] ?></p>
+                  <center>
+                  <img src="<?php echo base_url().$artikel[0]['icon'] ?>" class="img-responsive" alt="">
+                  </center>
+                  <div class="artikel-isi"><?php echo $artikel[0]['isi']?></div>
+              </div>
+
           </div>
-
+          <div class="col-md-1"></div>
       </div>
-
   </div>
   <!-- end content -->
   <!-- footer -->

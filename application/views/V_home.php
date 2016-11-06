@@ -16,16 +16,14 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 </head>
 <style>
-.first-nav{
+/*.first-nav{
     background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");
-}
+}*/
 .zero-nav{
-    width: 100%;
-    height: 15px;
-    background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");
+    /*background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");*/
 }
 .menu-small a#menu-trigger{
-    background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");
+    /*background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");*/
 }
 </style>
 <body>
@@ -198,7 +196,7 @@
                     <div class="artikel-body">
                         <div class="artikel-hot">
                             <img src="<?php echo base_url().$artikel_inside_school[0]['icon'] ?>" alt="" class="img-responsive artikel-hot-img">
-                            <a href="" class="artikel-hot-caption-wrap">
+                            <a href="<?php echo site_url('artikel/inside-school')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$artikel_inside_school[0]['judul']) ?>" class="artikel-hot-caption-wrap">
                                 <span class="artikel-hot-caption">
                                     <span class="artikel-hot-date"><?php echo date("d/m/Y", strtotime($artikel_inside_school[0]['datetime'])) ?></span><br>
                                     <?php echo $artikel_inside_school[0]['judul'] ?>
@@ -207,7 +205,11 @@
                         </div>
                         <div class="artikel-normal">
                             <ul>
-                                <?php foreach($artikel_inside_school as $inside_school){ ?>
+                                <?php foreach($artikel_inside_school as $key=>$inside_school){
+                                    if($key == 0){
+                                        continue;
+                                    }
+                                 ?>
                                 <li><a href="<?php echo site_url('artikel/inside-school')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$inside_school['judul']) ?>"><?php echo $inside_school['judul'] ?></a></li>
                                 <?php } ?>
                             </ul>
@@ -222,7 +224,7 @@
                     <div class="artikel-body">
                         <div class="artikel-hot">
                             <img src="<?php echo base_url().$artikel_kabar_sepekan[0]['icon']?>" alt="" class="img-responsive artikel-hot-img">
-                            <a href="" class="artikel-hot-caption-wrap">
+                            <a href="<?php echo site_url('artikel/kabar-sepekan')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$artikel_kabar_sepekan[0]['judul']) ?>" class="artikel-hot-caption-wrap">
                                 <span class="artikel-hot-caption">
                                     <span class="artikel-hot-date"><?php echo date("d/m/Y", strtotime($artikel_kabar_sepekan[0]['datetime'])) ?></span><br>
                                     <?php echo $artikel_kabar_sepekan[0]['judul'] ?>
@@ -231,7 +233,11 @@
                         </div>
                         <div class="artikel-normal">
                             <ul>
-                                <?php foreach($artikel_kabar_sepekan as $kabar_sepekan){ ?>
+                                <?php foreach($artikel_kabar_sepekan as $key=>$kabar_sepekan){
+                                    if($key == 0){
+                                        continue;
+                                    }
+                                 ?>
                                 <li><a href="<?php echo site_url('artikel/kabar-sepekan')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$kabar_sepekan['judul']) ?>"><?php echo $kabar_sepekan['judul'] ?></a></li>
                                 <?php } ?>
                             </ul>
@@ -246,7 +252,7 @@
                     <div class="artikel-body">
                         <div class="artikel-hot">
                             <img src="<?php echo base_url().$artikel_hidup_guruku[0]['icon']?>" alt="" class="img-responsive artikel-hot-img">
-                            <a href="" class="artikel-hot-caption-wrap">
+                            <a href="<?php echo site_url('artikel/hidup-guruku')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$artikel_hidup_guruku[0]['judul']) ?>" class="artikel-hot-caption-wrap">
                                 <span class="artikel-hot-caption">
                                     <span class="artikel-hot-date"><?php echo date("d/m/Y", strtotime($artikel_hidup_guruku[0]['datetime'])) ?></span><br>
                                     <?php echo $artikel_hidup_guruku[0]['judul'] ?>
@@ -255,7 +261,11 @@
                         </div>
                         <div class="artikel-normal">
                             <ul>
-                                <?php foreach($artikel_hidup_guruku as $hidup_guruku){ ?>
+                                <?php foreach($artikel_hidup_guruku as $key=>$hidup_guruku){
+                                    if($key == 0){
+                                        continue;
+                                    }
+                                 ?>
                                 <li><a href="<?php echo site_url('artikel/hidup-guruku')."/".preg_replace('/[^a-zA-Z0-9]/',"-",$hidup_guruku['judul']) ?>"><?php echo $hidup_guruku['judul'] ?></a></li>
                                 <?php } ?>
                             </ul>

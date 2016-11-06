@@ -1,3 +1,10 @@
+body{
+    background-color: #f7f7f7;
+}
+.detail-artikel-wrap{
+    box-shadow: 0px 0px 8px #C1BBD9;
+    margin-bottom: 10px;
+}
 .guruku-judul-utama a{
   text-decoration: none;
   color: #f58712;
@@ -24,13 +31,13 @@
 }
 .guruku-cuplikan a{
   text-decoration: none;
-  color: #000000;
+  color: #dc2a2a;
   font-style: italic;
-  font-weight: bolder;
+  font-weight: 500;
 }
 .guruku-cuplikan a:hover{
   text-decoration: none;
-  font-weight: normal;
+  opacity: 0.7;
 }
 a p .guruku-cuplikan-berita2{
   text-decoration: none;
@@ -41,7 +48,7 @@ a:hover p .guruku-cuplikan-berita2{
   color: rgba(0, 0, 0, 0.8);
 }
 .guruku-berita-baru img{
-  height: 300px;
+  /*height: 300px;*/
 }
 .guruku-berita{
   width: 100%;
@@ -64,7 +71,7 @@ a:hover p .guruku-cuplikan-berita2{
   margin-left: 15px;
 }
 .guruku-judul-utama{
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 0px;
 }
@@ -116,7 +123,7 @@ a:hover p .guruku-cuplikan-berita2{
   color: #8c8c8c;
 }
 .guruku-detail-gambar img{
-  height: 400px;
+  /*height: 400px;*/
   margin-bottom: 10px;
 }
 .guruku-populer{

@@ -95,7 +95,7 @@ class Admin extends CI_Controller {
 		$panjang_base_url = strlen(base_url());
 		$icon = substr($this->input->post("icon"),$panjang_base_url);
 		// print_r($_POST);
-		$this->M_artikel->insert(array(
+		$array_insert = array(
 			'uuid'      => substr(md5(mt_rand(10,100)), 0, 7),
 			'datetime'	=> date("Y-m-d H:i:s"),
 			'judul'     => $judul,
@@ -106,7 +106,13 @@ class Admin extends CI_Controller {
 			'publish'   => $publish,
 			'hapus'     => $hapus,
 			'editor'    => $editor
-		));
+		);
+		if($this->M_artikel->insert($array_insert)){
+			echo "berhasil insert";
+		}
+		else{
+			echo var_dump($array_insert);
+		}
 	}
 	public function artikel_edit(){
 		$this->load->model("M_artikel");

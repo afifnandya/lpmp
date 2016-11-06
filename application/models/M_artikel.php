@@ -52,7 +52,7 @@ class M_artikel extends CI_Model{
         $judul = $judul;
         $this->db->select('*');
         $this->db->from('artikel');
-        $this->db->like('judul',$judul,'after');
+        $this->db->like('judul',$judul,'before');
 		return $this->db->get()->result_array();
     }
     public function getArtikelByKategori($kategori,$limit){
@@ -62,7 +62,7 @@ class M_artikel extends CI_Model{
         $this->db->where('kategori.nama', $kategori);
         $this->db->where('hapus',0);
         if($limit !== " "){
-            $this->db->limit($limit);    
+            $this->db->limit($limit);
         }
 		return $this->db->get()->result_array();
     }

@@ -221,14 +221,14 @@
           $.ajax('<?php echo site_url('admin/gambarCrop')?>', {
             method: "POST",
             data: {'pngimageData': croppng,'filename': imageName},
-            success: function(e) {
+            success: function(respon) {
                 $('#imgPreview').attr('src',e);
                 $('#myModal').modal('hide');
-                console.log(e);
+                console.log(response);
             //   alert(e);
             },
             error: function () {
-              alert('Error'+e);
+              alert('Error'+response);
             }
           });
     });
@@ -255,11 +255,14 @@
                     cache: false,
                     contentType: false,
                     processData: false,
-                    success : function(berhasil){
+                    success : function(respon){
                         // alert(berhasil);
                         swal('Berhasil Menyimpan Artikel','','success').then(function() {
                             window.location='<?php echo site_url('admin/artikel') ?>';
                         });
+                    },
+                    error : function(respon){
+                        alert(respon);
                     }
                 });
             }

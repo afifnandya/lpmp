@@ -5,18 +5,18 @@ class Artikel extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-	}
-	public function index($param1 = null,$param2 = null){
 		$this->load->model('M_kategori');
 		$this->load->model('M_artikel');
-		$param_edit = str_replace("-"," ",$param1);
-		$kategori_artikel = $this->M_kategori->getKategoriByNama($param_edit);
-		if($kategori_artikel == null){
+	}
+	public function index($param1 = null,$param2 = null){
+		$param_kategori = str_replace("-"," ",$param1);
+		$kategori_artikel = $this->M_kategori->getKategoriByNama($param_kategori);
+		if($kategori_artikel == null){ //jika nama kategori artikel tidak ada
 			show_404();
 		}
-		else{
-			if(!$this->uri->segment(3)){
-				$artikel_by_kategori = $this->M_artikel->getArtikelByKategori($param_edit," ");
+		else{ //jika nama kategori artikel ada
+			if(!$this->uri->segment(3)){ // masuk ke halaman artikel
+				$artikel_by_kategori = $this->M_artikel->getArtikelByKategori($param_kategori," ");
 				$data['featured_judul'] = $artikel_by_kategori[0]['judul'];
 				$data['featured_judul_link'] = str_replace(" ","-",$artikel_by_kategori[0]['judul']);
 				$data['featured_sub_judul'] = $artikel_by_kategori[0]['subjudul'];
@@ -37,10 +37,10 @@ class Artikel extends CI_Controller {
 				}
 				$this->load->view('V_kategori_artikel',$data);
 			}
-			else{
-				$param_edit2 = substr(preg_replace('/[^a-zA-Z0-9]/'," ",$param2),0,6);
-				$data['artikel'] = $this->M_artikel->getArtikelByJudul($param_edit2);
-				$data['artikel_by_kategori'] = $this->M_artikel->getArtikelByKategori($param_edit," ");
+			else{ // masuk ke halaman detail dari artikel
+				$param_artikel = substr(preg_replace('/[^a-zA-Z0-9]/'," ",$param2),-20);
+				$data['artikel'] = $this->M_artikel->getArtikelByJudul($param_artikel);
+				$data['artikel_by_kategori'] = $this->M_artikel->getArtikelByKategori($param_kategori," ");
 				if($data['artikel'] == null){
 					echo var_dump($data['artikel']);
 					// show_404();

@@ -128,6 +128,7 @@
                         </div>
                         <div class="col-xs-12">
                             <textarea name="isiArtikel" id="isiArtikel" style="width:100%">
+                                <img src="<?php echo base_url().$artikel[0]['icon'] ?>" alt="" />
                                 <?php echo $artikel[0]['isi'] ?>
                             </textarea>
                             <input type="hidden" id="shadowArtikel" name="shadowArtikel">

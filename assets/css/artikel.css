@@ -29,10 +29,10 @@ body{
   text-decoration: none;
   color: rgba(245, 135, 18, 0.8);
 }
-.guruku-cuplikan a{
+.guruku-cuplikan div a{
   text-decoration: none;
   color: #dc2a2a;
-  font-style: italic;
+  /*font-style: italic;*/
   font-weight: 500;
 }
 .guruku-cuplikan a:hover{

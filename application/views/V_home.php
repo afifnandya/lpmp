@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LPMP</title>
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/css/index.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/css/responsive.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/slick/slick.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/slick/slick-theme.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/css/photoswipe.css">
-    <link rel="stylesheet"href="<?php echo base_url()?>assets/css/photoswipe-skin/default-skin.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/index.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/slick/slick.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/slick/slick-theme.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/photoswipe.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/photoswipe-skin/default-skin.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 </head>
 <style>
@@ -29,8 +29,8 @@
 <body>
     <!-- nav -->
     <?php $this->load->view('navbar') ?>
-    <!-- end nav -->
     <!-- <div class="clearfix"></div> -->
+    <!-- content -->
     <div class="col-xs-12 separator"></div>
     <div class="content">
     <div class="container-fluid no-padding">
@@ -405,6 +405,7 @@
         dots : false,
         infinite: true,
         arrows : false,
+        draggable : false,
         fade : true,
         asNavFor : '.gallery-slider'
     });
@@ -472,55 +473,6 @@
     </script>
     <script>
     $("document").ready(function(){
-        // var height = $(".head-line-hot").height();
-        $('.main-slider').on('init', function(){
-            var slide = ".item-<?php echo $header['0']['urutan']?>";
-            var caption = slide+" "+".caption-bg";
-            // alert(caption);
-            $(caption).velocity({
-                properties : { bottom : "0%" ,opacity : 1 },
-                options : {
-                    duration : 0,
-                    queue : false
-                }
-            })
-            .velocity({
-                properties : { bottom : "-10%" ,opacity : 0 },
-                options : {
-                    delay : 6800,
-                    duration : 1000,
-                    queue : false
-                }
-            });
-          });
-        $(".main-slider").slick({
-            nextArrow : $('.slider-next'),
-            prevArrow : $('.slider-prev'),
-            speed : 750,
-            autoplay: true,
-            autoplaySpeed: 7000,
-            pauseOnHover : false,
-            adaptiveHeight : true,
-        });
-        $('.main-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-            var next = nextSlide;
-            var slide = ".item-"+next;
-            var caption = slide+" "+".caption-bg";
-            // alert(caption);
-            $(caption).velocity({
-                properties : { bottom : "0%" ,opacity : 1 },
-                options : {
-                    duration : 1000,
-                }
-            })
-            .velocity({
-                properties : { bottom : "-10%" ,opacity : 0 },
-                options : {
-                    delay : 5800,
-                    duration : 1000,
-                }
-            });
-          });
         $(".layanan-slider").slick({
             nextArrow : $('.layanan-slider-next'),
             prevArrow : $('.layanan-slider-prev'),

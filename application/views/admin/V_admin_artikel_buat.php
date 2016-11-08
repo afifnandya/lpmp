@@ -179,15 +179,15 @@
             e.preventDefault();
             $.ajax({
                 type : 'POST',
-                url : '<?php echo site_url('admin/gambar')?>',
+                url : '<?php echo site_url('admin/gambar/artikel')?>',
                 data :  new FormData(this),
                 cache: false,
                 contentType: false,
                 processData: false,
-                success : function(berhasil){
+                success : function(respon){
                     var gambar = '<?php echo base_url(); ?>';
-                    image.attr('src',gambar+berhasil);
-                    $('#imgPreview').attr('src',gambar+berhasil);
+                    image.attr('src',gambar+respon);
+                    $('#imgPreview').attr('src',gambar+respon);
                     $('#myModal').modal({
                         backdrop : 'static',
                         keyboard : false,
@@ -218,17 +218,16 @@
         var cropcanvas = $('#imgReadyCrop').cropper('getCroppedCanvas');
         var croppng = cropcanvas.toDataURL("image/jpeg",0.9);
         var imageName = $('#imgReadyCrop').attr('src').split(/(\\|\/)/g).pop();
-          $.ajax('<?php echo site_url('admin/gambarCrop')?>', {
+          $.ajax('<?php echo site_url('admin/gambarCrop/artikel')?>', {
             method: "POST",
             data: {'pngimageData': croppng,'filename': imageName},
             success: function(respon) {
-                $('#imgPreview').attr('src',e);
+                $('#imgPreview').attr('src',respon);
                 $('#myModal').modal('hide');
-                console.log(response);
-            //   alert(e);
+                console.log(respon);
             },
-            error: function () {
-              alert('Error'+response);
+            error: function (respon) {
+              alert('Error'+respon);
             }
           });
     });
@@ -256,7 +255,7 @@
                     contentType: false,
                     processData: false,
                     success : function(respon){
-                        // alert(berhasil);
+                        // alert(respon);
                         swal('Berhasil Menyimpan Artikel','','success').then(function() {
                             window.location='<?php echo site_url('admin/artikel') ?>';
                         });

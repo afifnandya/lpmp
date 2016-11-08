@@ -7,10 +7,10 @@
     <title>Home</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/login.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/font/flaticon.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/login.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/font/flaticon.css">
 </head>
 <style>
     body{
@@ -29,8 +29,6 @@
                         <img src="<?php echo base_url() ?>/assets/img/lpmp-logo-edit.png" class="img-responsive">
                     </div>
                     <div class="col-xs-2"></div>
-                    <!-- <p class="siput-header">SIPUT</p>
-                    <p class="siput-subheader">Sistem Informasi Pemerataan Kualitas Pendidikan</p> -->
                 </div>
                 <div class="col-xs-12 down-section">
                     <div class="inner-down">
@@ -38,7 +36,6 @@
                         <p class="login-subheader">Masukkan Username dan Password</p>
                         <form action="<?php echo site_url('login')?>" method="post">
                             <div class="form-group">
-                                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
                                     <input type="text" class="form-control" placeholder="username" name="username">

@@ -51,8 +51,8 @@ class Admin extends CI_Controller {
 			redirect('login');
 		}
 	}
-	public function gambar(){
-		$icon_location = "assets/img/artikel/";
+	public function gambar($lokasi){
+		$icon_location = "assets/img"."/".$lokasi."/";
 		$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
 		if(move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file)){
 			echo $icon_file;
@@ -61,15 +61,15 @@ class Admin extends CI_Controller {
 			print_r($_FILES);
 		}
 	}
-	public function gambarCrop(){
+	public function gambarCrop($lokasi){
 		$this->load->helper('path');
 		$filename = $_POST['filename'];
 		$img = $_POST['pngimageData'];
-		$lokasi = "assets/img/artikel/";
+		$lokasi_crop = "assets/img"."/".$lokasi."/";
 		$img = str_replace('data:image/jpeg;base64,', '', $img);
 		$img = str_replace(' ', '+', $img);
 		$data = base64_decode($img);
-		$file = $lokasi."Crop-".$filename;
+		$file = $lokasi_crop."Crop-".$filename;
 		$lokasi_hasil_crop = base_url().$file;
 		$success = file_put_contents($file, $data);
 		if($success){
@@ -79,6 +79,7 @@ class Admin extends CI_Controller {
 			echo "Gagal menyimpan hasil crop";
 		}
 	}
+
 	public function artikel_submit(){
 		$this->load->model("M_artikel");
 		date_default_timezone_set("Asia/Bangkok");
@@ -193,6 +194,62 @@ class Admin extends CI_Controller {
 		$this->load->model("M_header");
 		$id_header = $this->input->post('id_header');
 		$this->M_header->deleteHeader($id_header);
+	}
+	//gallery
+	public function gallery(){
+		if($this->session->userdata('admin')){
+			$this->load->model("M_gallery");
+			$data['gallery'] = $this->M_gallery->getgallery("","0");
+			// echo "<pre>";
+			// print_r($data['gallery']);
+			// echo "</pre>";
+			foreach ($data['gallery'] as $i => $value) {
+				$gambar = base_url().$data['gallery'][$i]['gambar'];
+				$data['gallery'][$i]['gambar'] = $gambar;
+				list(${"width_gambar".$i}, ${"height_gambar".$i}) = getimagesize($data['gallery'][$i]['gambar']);
+				$data['gallery'][$i]['width'] = ${"width_gambar".$i};
+				$data['gallery'][$i]['height'] = ${"height_gambar".$i};
+			}
+			$this->load->view('admin/V_admin_gallery',$data);
+		}
+		else{
+			redirect('login');
+		}
+	}
+	public function gallery_submit(){
+		$panjang_base_url = strlen(base_url());
+		$this->load->model("M_gallery");
+		$gambar = substr($this->input->post("gambar"),$panjang_base_url);
+		$keterangan = $this->input->post("keterangan");
+		$queryUrutan = $this->M_gallery->getUrutan();
+		$urutan = $queryUrutan[0]['urutan']+1;
+		$array_insert = array(
+			'gambar'    => $gambar,
+			'keterangan'=> $keterangan,
+			'hapus'     => 0,
+			'urutan'    => $urutan,
+		);
+		if($this->M_gallery->insert($array_insert)){
+			echo "berhasil insert";
+		}
+		else{
+			print_r($_POST);
+		}
+	}
+	public function gallery_urutan(){
+		$this->load->model("M_gallery");
+		$urutan = json_decode($this->input->post("urutan"));
+		foreach ($urutan as $key => $value){
+			$this->M_gallery->updateUrutan(array(
+				'urutan' => $key,
+				'id' => $value
+			));
+		}
+	}
+	public function gallery_delete(){
+		$this->load->model("M_gallery");
+		$id_header = $this->input->post('id_gallery');
+		$this->M_gallery->deletegallery($id_header);
 	}
 	public function user(){
 		if($this->session->userdata('admin')){

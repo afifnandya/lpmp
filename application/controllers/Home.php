@@ -22,11 +22,11 @@ class Home extends CI_Controller {
 			$data['header'][$key]['judul_artikel'] = $artikelById[0]['judul'];
 			$data['header'][$key]['sub_judul_artikel'] = $artikelById[0]['subjudul'];
 		}
-		$data['gallery'][0]['file'] = base_url("assets/img/7.jpg");
-		$data['gallery'][1]['file'] = base_url("assets/img/6.jpg");
-		$data['gallery'][2]['file'] = base_url("assets/img/8.jpg");
-		$data['gallery'][3]['file'] = base_url("assets/img/9.jpg");
-		$data['gallery'][4]['file'] = base_url("assets/img/5.jpg");
+		$data['gallery'][0]['file'] = base_url("assets/img/gallery/7.jpg");
+		$data['gallery'][1]['file'] = base_url("assets/img/gallery/6.jpg");
+		$data['gallery'][2]['file'] = base_url("assets/img/gallery/8.jpg");
+		$data['gallery'][3]['file'] = base_url("assets/img/gallery/9.jpg");
+		$data['gallery'][4]['file'] = base_url("assets/img/gallery/5.jpg");
 		for ($i=0;$i<5;$i++) {
 			list(${"width_gambar".$i}, ${"height_gambar".$i}) = getimagesize($data['gallery'][$i]['file']);
 			$data['gallery'][$i]['width'] = ${"width_gambar".$i};

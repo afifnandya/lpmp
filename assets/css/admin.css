@@ -220,8 +220,10 @@ li.left-link i.fa-angle-down{
 }
 .slider-option ul li.item-drag{
     display: inline-block;
-    width: 49%;
+    width: 32%;
     position: relative;
+    height: 150px;
+    overflow: hidden;
 }
 .slider-option ul li.item-drag .delete{
     position: absolute;
@@ -263,6 +265,12 @@ li.left-link i.fa-angle-down{
 }
 .slider-wrap{
     padding: 10px;
+    background-color: white;
+}
+.gallery-box{
+    padding: 10px;
+    padding-bottom: 30px;
+    margin-bottom: 10px;
     background-color: white;
 }
 /*css ambil dari luar (search box)*/

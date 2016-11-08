@@ -10,11 +10,8 @@
     <link rel="stylesheet"href="<?php echo base_url()?>assets/css/responsive.css">
     <link rel="stylesheet"href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/hidup_guruku.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/hidup_guruku_responsive.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/responsive.css">
-    <link rel="stylesheet" href="<?php echo base_url('/assets/css/dataurl.css')?>">
-    <script type="text/javascript" src="<?php echo base_url('/assets/js/pace.min.js') ?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/artikel.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/artikel_responsive.css">
 </head>
 <style>
 .first-nav{
@@ -41,9 +38,6 @@
               <div class="col-xs-12 col-md-12 guruku-detail-gambar">
                   <p class="guruku-judul-utama"><a href=""><?php echo $artikel[0]['judul'] ?></a></p>
                   <p class="guruku-tanggal"><?php echo $artikel[0]['subjudul'] ?></p>
-                  <center>
-                  <img src="<?php echo base_url().$artikel[0]['icon'] ?>" class="img-responsive" alt="">
-                  </center>
                   <div class="artikel-isi"><?php echo $artikel[0]['isi']?></div>
               </div>
 

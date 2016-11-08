@@ -24,7 +24,7 @@ class Artikel extends CI_Controller {
 				$data['featured_isi'] = strip_tags($artikel_by_kategori[0]['isi']);
 				if(strlen($data['featured_isi']) > 300) {
 					$data['featured_isi'] = substr($data['featured_isi'], 0,300);
-					$data['featured_isi'] = $data['featured_isi'].'<br><a href="'.site_url($this->uri->uri_string())."/".$data['featured_judul_link'].'">selengkapnya</a>';
+					$data['featured_isi'] = $data['featured_isi'].'<br><div class="text-right"><a href="'.site_url($this->uri->uri_string())."/".$data['featured_judul_link'].'">Selengkapnya</a></div>';
 				}
 				$data['artikel'] = $artikel_by_kategori;
 				foreach ($artikel_by_kategori as $key => $value){
@@ -32,7 +32,7 @@ class Artikel extends CI_Controller {
 					$data['artikel'][$key]['isi'] = strip_tags($data['artikel'][$key]['isi']);
                     if (strlen($data['artikel'][$key]['isi']) > 300) {
                         $data['artikel'][$key]['isi'] = substr($data['artikel'][$key]['isi'], 0,300);
-                        $data['artikel'][$key]['isi'] = $data['artikel'][$key]['isi'].'<br><a href="'.site_url($this->uri->uri_string())."/".$data['artikel'][$key]['judul_link'].'">selengkapnya</a>';
+                        $data['artikel'][$key]['isi'] = $data['artikel'][$key]['isi'].'<br><div class="text-right"><a href="'.site_url($this->uri->uri_string())."/".$data['artikel'][$key]['judul_link'].'">Selengkapnya</a></div>';
                     }
 				}
 				$this->load->view('V_kategori_artikel',$data);

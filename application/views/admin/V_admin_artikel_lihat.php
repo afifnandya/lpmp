@@ -19,11 +19,9 @@
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="padding:0">
       <!--header-->
-      <?php $this->load->view("admin/V_admin_header") ?>
-      <!--end header-->
+      <?php $this->load->view("admin/komponen/header") ?>
       <!-- Left side -->
-      <?php $this->load->view("admin/V_admin_left-side") ?>
-      <!--end left side-->
+      <?php $this->load->view("admin/komponen/left_side") ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Main content -->
@@ -31,25 +29,24 @@
           <div class="row">
             <div class="col-xs-1"></div>
             <div class="col-xs-10">
-                <div class="artikel-list">
-                    <div class="artikel-list-header">
-                        <p class="guruku-judul-utama"><a href=""><?php echo $artikel[0]['judul'] ?></a></p>
-                    </div>
-                    <div class="artikel-list-body">
-                        <p class="guruku-tanggal"><?php echo $artikel[0]['subjudul'] ?></p>
-                        <img src="<?php echo base_url().$artikel[0]['icon'] ?>" class="img-responsive" alt="">
-                        <div class="artikel-isi"><?php echo $artikel[0]['isi']?></div>
-                        <p class="text-right">
-                            <a href="<?php echo site_url('admin/artikel/edit/').$artikel[0]['uuid'] ?>" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Artikel</a>
-                        </p>
-                    </div>
+              <div class="artikel-list">
+                <div class="artikel-list-header">
+                  <p class="guruku-judul-utama"><a href=""><?php echo $artikel[0]['judul'] ?></a></p>
                 </div>
+                <div class="artikel-list-body">
+                  <p class="guruku-tanggal"><?php echo $artikel[0]['subjudul'] ?></p>
+                  <div class="artikel-isi"><?php echo $artikel[0]['isi']?></div>
+                  <p class="text-right">
+                      <a href="<?php echo site_url('admin/artikel/edit/').$artikel[0]['uuid'] ?>" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Artikel</a>
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="col-xs-1"></div>
-          </div><!-- /.row (main row) -->
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-    </div><!-- ./wrapper -->
+          </div>
+        </section>
+      </div>
+    </div>
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>

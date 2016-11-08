@@ -16,12 +16,10 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="padding:0">
-      <!--header-->
-      <?php $this->load->view("admin/V_admin_header") ?>
-      <!--end header-->
-      <!-- Left side -->
-      <?php $this->load->view("admin/V_admin_left-side") ?>
-      <!--end left side-->
+        <!--header-->
+        <?php $this->load->view("admin/komponen/header") ?>
+        <!-- Left side -->
+        <?php $this->load->view("admin/komponen/left_side") ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Main content -->

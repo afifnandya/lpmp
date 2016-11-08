@@ -17,6 +17,7 @@ class Admin extends CI_Controller {
 			redirect('login');
         }
 	}
+	//artikel
 	public function artikel(){
 		if($this->session->userdata('admin')){
 			if(!$this->uri->segment(3)){
@@ -51,35 +52,6 @@ class Admin extends CI_Controller {
 			redirect('login');
 		}
 	}
-	public function gambar($lokasi){
-		$icon_location = "assets/img"."/".$lokasi."/";
-		$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
-		if(move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file)){
-			echo $icon_file;
-		}
-		else {
-			print_r($_FILES);
-		}
-	}
-	public function gambarCrop($lokasi){
-		$this->load->helper('path');
-		$filename = $_POST['filename'];
-		$img = $_POST['pngimageData'];
-		$lokasi_crop = "assets/img"."/".$lokasi."/";
-		$img = str_replace('data:image/jpeg;base64,', '', $img);
-		$img = str_replace(' ', '+', $img);
-		$data = base64_decode($img);
-		$file = $lokasi_crop."Crop-".$filename;
-		$lokasi_hasil_crop = base_url().$file;
-		$success = file_put_contents($file, $data);
-		if($success){
-			echo $lokasi_hasil_crop;
-		}
-		else{
-			echo "Gagal menyimpan hasil crop";
-		}
-	}
-
 	public function artikel_submit(){
 		$this->load->model("M_artikel");
 		date_default_timezone_set("Asia/Bangkok");
@@ -147,54 +119,6 @@ class Admin extends CI_Controller {
 		$id_artikel = $this->input->post('id_artikel');
 		$this->M_artikel->deleteArtikel($id_artikel);
 	}
-	public function header(){
-		if($this->session->userdata('admin')){
-			$this->load->model("M_artikel");
-			$this->load->model("M_header");
-			$data['artikel'] = $this->M_artikel->getArtikel("","0");
-			$data['header'] = $this->M_header->getHeader("","1");
-			$this->load->view('admin/V_admin_control_header',$data);
-		}
-		else{
-			redirect('login');
-		}
-	}
-	public function header_submit(){
-		$this->load->model("M_header");
-		$queryUrutan = $this->M_header->getUrutan();
-		$uuid_artikel = $this->input->post("artikel");
-		$link = 1;
-		$status = 1;
-		$urutan = $queryUrutan[0]['urutan']+1;
-		$icon_location = "assets/img/header/";
-		$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
-		move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file);
-		$icon = $icon_file;
-		$this->M_header->insert(array(
-			'icon'	=> $icon,
-			'uuid_artikel'     => $uuid_artikel,
-			'link'  => $link,
-			'status'       => $status,
-			'urutan'  => $urutan
-		));
-		echo "berhasil";
-	}
-	public function header_urutan(){
-		$this->load->model("M_header");
-		$urutan = json_decode($this->input->post("urutan"));
-		foreach ($urutan as $key => $value){
-			$this->M_header->updateUrutan(array(
-				'urutan' => $key,
-				'id' => $value
-			));
-		}
-		// echo var_dump($urutan);
-	}
-	public function header_delete(){
-		$this->load->model("M_header");
-		$id_header = $this->input->post('id_header');
-		$this->M_header->deleteHeader($id_header);
-	}
 	//gallery
 	public function gallery(){
 		if($this->session->userdata('admin')){
@@ -251,6 +175,7 @@ class Admin extends CI_Controller {
 		$id_header = $this->input->post('id_gallery');
 		$this->M_gallery->deletegallery($id_header);
 	}
+	//user
 	public function user(){
 		if($this->session->userdata('admin')){
 			$this->load->model("M_user");
@@ -293,18 +218,11 @@ class Admin extends CI_Controller {
 	}
 	public function user_edit(){
 		$this->load->model("M_user");
-		if((isset($_FILES["foto"]["size"]) && ($_FILES["foto"]["size"] > 0))){
-			$foto_location = "assets/img/admin/";
-			$foto_file = $foto_location.basename($_FILES["foto"]["name"]);
-			move_uploaded_file($_FILES["foto"]["tmp_name"], $foto_file);
-			$foto = $foto_file;
-		}
-		else{
-			$foto = $this->input->post("fotoShadow");
-		}
+		$panjang_base_url = strlen(base_url());
 		$username = $this->input->post("username");
 		$nama = $this->input->post("nama");
 		$password = $this->input->post("password");
+		$foto = substr($this->input->post("foto"),$panjang_base_url);
 		$status = $this->input->post("status");
 		$aktif = $this->input->post("aktif");
 		$this->M_user->edit(array(
@@ -320,5 +238,34 @@ class Admin extends CI_Controller {
 		$this->load->model("M_user");
 		$username = $this->input->post('username');
 		$this->M_user->deleteUser($username);
+	}
+	// crop gambar
+	public function gambar($lokasi){
+		$icon_location = "assets/img"."/".$lokasi."/";
+		$icon_file = $icon_location.basename($_FILES["icon"]["name"]);
+		if(move_uploaded_file($_FILES["icon"]["tmp_name"], $icon_file)){
+			echo $icon_file;
+		}
+		else {
+			print_r($_FILES);
+		}
+	}
+	public function gambarCrop($lokasi){
+		$this->load->helper('path');
+		$filename = $_POST['filename'];
+		$img = $_POST['pngimageData'];
+		$lokasi_crop = "assets/img"."/".$lokasi."/";
+		$img = str_replace('data:image/jpeg;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		$file = $lokasi_crop."Crop-".$filename;
+		$lokasi_hasil_crop = base_url().$file;
+		$success = file_put_contents($file, $data);
+		if($success){
+			echo $lokasi_hasil_crop;
+		}
+		else{
+			echo "Gagal menyimpan hasil crop";
+		}
 	}
 }

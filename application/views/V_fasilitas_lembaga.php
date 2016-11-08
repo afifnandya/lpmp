@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- nav -->
-    <?php $this->load->view('navbar') ?>
+    <?php $this->load->view('komponen/navbar') ?>
     <!-- end nav -->
     <div class="clearfix"></div>
     <!-- content -->
@@ -27,7 +27,7 @@
     </div>
     </div>
     <!-- footer -->
-    <?php $this->load->view('footer') ?>
+    <?php $this->load->view('komponen/footer') ?>
     <!-- end footer -->
     <script src="<?php echo base_url()?>assets/js/jquery.js"></script>
     <script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>

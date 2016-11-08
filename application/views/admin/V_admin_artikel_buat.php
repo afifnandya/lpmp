@@ -38,9 +38,9 @@
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="padding:0">
       <!--header-->
-      <?php $this->load->view("admin/V_admin_header") ?>
+      <?php $this->load->view("admin/komponen/header") ?>
       <!-- Left side -->
-      <?php $this->load->view("admin/V_admin_left-side") ?>
+      <?php $this->load->view("admin/komponen/left_side") ?>
       <!-- Contains page content -->
       <div class="content-wrapper">
         <!-- Main content -->
@@ -131,28 +131,9 @@
       </div>
     </div>
     <!-- Modal -->
-    <form action="" method="post" id="formCropGambar" enctype="multipart/form-data">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-              <div>
-                  <img src="" id="imgReadyCrop">
-                  <input type="submit" class="hidden">
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary getCropButton">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </form>
+    <?php $this->load->view('admin/komponen/modal_crop'); ?>
+    <!-- ajax loader -->
+    <?php $this->load->view('admin/komponen/ajax_loader'); ?>
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
@@ -184,6 +165,12 @@
                 cache: false,
                 contentType: false,
                 processData: false,
+                beforeSend: function() {
+                    $('.ajaxLoader').show();
+                },
+                complete: function(){
+                    $('.ajaxLoader').hide();
+                },
                 success : function(respon){
                     var gambar = '<?php echo base_url(); ?>';
                     image.attr('src',gambar+respon);
@@ -221,6 +208,12 @@
           $.ajax('<?php echo site_url('admin/gambarCrop/artikel')?>', {
             method: "POST",
             data: {'pngimageData': croppng,'filename': imageName},
+            beforeSend: function() {
+                $('.ajaxLoader').show();
+            },
+            complete: function(){
+                $('.ajaxLoader').hide();
+            },
             success: function(respon) {
                 $('#imgPreview').attr('src',respon);
                 $('#myModal').modal('hide');
@@ -254,6 +247,12 @@
                     cache: false,
                     contentType: false,
                     processData: false,
+                    beforeSend: function() {
+                        $('.ajaxLoader').show();
+                    },
+                    complete: function(){
+                        $('.ajaxLoader').hide();
+                    },
                     success : function(respon){
                         // alert(respon);
                         swal('Berhasil Menyimpan Artikel','','success').then(function() {

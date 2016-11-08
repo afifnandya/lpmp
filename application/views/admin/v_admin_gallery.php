@@ -22,10 +22,10 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="padding:0">
-      <!--header-->
-      <?php $this->load->view("admin/V_admin_header") ?>
-      <!-- Left side -->
-      <?php $this->load->view("admin/V_admin_left-side") ?>
+        <!--header-->
+        <?php $this->load->view("admin/komponen/header") ?>
+        <!-- Left side -->
+        <?php $this->load->view("admin/komponen/left_side") ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Main content -->
@@ -152,63 +152,11 @@
     </div><!-- ./wrapper -->
     <!-- modal crop -->
     <!-- Modal -->
-    <form action="" method="post" id="formCropGambar" enctype="multipart/form-data">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-              <div>
-                  <img src="" id="imgReadyCrop">
-                  <input type="submit" class="hidden">
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary getCropButton">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </form>
+    <?php $this->load->view('admin/komponen/modal_crop'); ?>
     <!-- PhotoSwipe -->
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div>
-                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                    <button class="pswp__button pswp__button--share" title="Share"></button>
-                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                          <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div>
-                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php $this->load->view('komponen/photoswipe'); ?>
+    <!-- ajax loader -->
+    <?php $this->load->view('admin/komponen/ajax_loader') ?>
     <!--Library JS -->
     <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
@@ -244,6 +192,12 @@
                 cache: false,
                 contentType: false,
                 processData: false,
+                beforeSend: function() {
+                    $('.ajaxLoader').show();
+                },
+                complete: function(){
+                    $('.ajaxLoader').hide();
+                },
                 success : function(respon){
                     var gambar = '<?php echo base_url(); ?>';
                     image.attr('src',gambar+respon);
@@ -281,6 +235,12 @@
           $.ajax('<?php echo site_url('admin/gambarCrop/gallery')?>', {
             method: "POST",
             data: {'pngimageData': croppng,'filename': imageName},
+            beforeSend: function() {
+                $('.ajaxLoader').show();
+            },
+            complete: function(){
+                $('.ajaxLoader').hide();
+            },
             success: function(respon) {
                 $('#imgPreview').attr('src',respon);
                 $('#myModal').modal('hide');
@@ -365,6 +325,12 @@
                     cache: false,
                     contentType: false,
                     processData: false,
+                    beforeSend: function() {
+                        $('.ajaxLoader').show();
+                    },
+                    complete: function(){
+                        $('.ajaxLoader').hide();
+                    },
                     success : function(respon){
                         swal('Berhasil Menambahkan Foto Gallery','','success').then(function() {
                             window.location='<?php echo site_url('admin/gallery') ?>';
@@ -385,6 +351,12 @@
                 type : 'POST',
                 url : '<?php echo site_url('admin/gallery_urutan')?>',
                 data : {'urutan' : json},
+                beforeSend: function() {
+                    $('.ajaxLoader').show();
+                },
+                complete: function(){
+                    $('.ajaxLoader').hide();
+                },
                 success : function(respon){
                     swal('Berhasil Merubah Urutan Gallery','','success').then(function() {
                         window.location='<?php echo site_url('admin/gallery') ?>';
@@ -406,10 +378,16 @@
                     type : 'POST',
                     url : '<?php echo site_url('admin/gallery_delete')?>',
                     data : {'id_gallery' : id_gallery},
+                    beforeSend: function() {
+                        $('.ajaxLoader').show();
+                    },
+                    complete: function(){
+                        $('.ajaxLoader').hide();
+                    },
                     success : function(respon){
                         parent.velocity("fadeOut", { delay: 500, duration: 500 });
                         parent.remove();
-                        swal('Berhasil Menghapus gallery','','success').then(function() {
+                        swal('Berhasil Menghapus foto gallery','','success').then(function() {
                             $("#submitUrutan").click();
                             // window.location='<?php echo site_url('admin/header') ?>';
                         });

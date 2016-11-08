@@ -13,17 +13,9 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/artikel.css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/artikel_responsive.css">
 </head>
-<style>
-.first-nav{
-    /*background-image: url("<?php echo base_url()?>assets/img/headmid.jpg");*/
-}
-.zero-nav{
-    /*background-image: url("<?php echo base_url()?>assets/img/headtop.jpg");*/
-}
-</style>
 <body>
   <!-- nav -->
-  <?php $this->load->view('navbar') ?>
+  <?php $this->load->view('komponen/navbar') ?>
   <!-- end nav -->
     <!-- content -->
     <div class="container">
@@ -67,7 +59,7 @@
         </div>
     </div>
     <!-- footer -->
-    <?php $this->load->view('footer') ?>
+    <?php $this->load->view('komponen/footer') ?>
     <!-- end footer -->
     <script src="<?php echo base_url() ?>assets/js/jquery.js"></script>
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>

@@ -16,13 +16,11 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="container-fluid" style="padding:0">
-      <!--header-->
-      <?php $this->load->view("admin/V_admin_header") ?>
-      <!--end header-->
-      <!-- Left side -->
-      <?php $this->load->view("admin/V_admin_left-side") ?>
-      <!--end left side-->
-      <!-- Content Wrapper. Contains page content -->
+        <!--header-->
+        <?php $this->load->view("admin/komponen/header") ?>
+        <!-- Left side -->
+        <?php $this->load->view("admin/komponen/left_side") ?>
+      <!-- Content Wrapper -->
       <div class="content-wrapper">
         <!-- Main content -->
         <section class="">
@@ -89,7 +87,9 @@
           </div><!-- /.row (main row) -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-    </div><!-- ./wrapper -->
+    </div>
+    <!-- ajax loader -->
+    <?php $this->load->view('admin/komponen/ajax_loader') ?>
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
@@ -109,6 +109,12 @@
                 cache: false,
                 contentType: false,
                 processData: false,
+                beforeSend: function() {
+                    $('.ajaxLoader').show();
+                },
+                complete: function(){
+                    $('.ajaxLoader').hide();
+                },
                 success : function(berhasil){
                     swal('Berhasil Menambahkan User','','success').then(function() {
                         window.location='<?php echo site_url('admin/user') ?>';

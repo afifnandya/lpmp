@@ -15,12 +15,10 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <!--header-->
-      <?php $this->load->view("admin/V_admin_header") ?>
-      <!--end header-->
-      <!-- Left side column. contains the logo and sidebar -->
-      <?php $this->load->view("admin/V_admin_left-side") ?>
-      <!--end left side-->
+        <!--header-->
+        <?php $this->load->view("admin/komponen/header") ?>
+        <!-- Left side -->
+        <?php $this->load->view("admin/komponen/left_side") ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -34,7 +32,6 @@
             <li class="active">Dashboard</li>
           </ol>
         </section>
-
         <!-- Main content -->
         <section class="content">
           <!-- Small boxes (Stat box) -->

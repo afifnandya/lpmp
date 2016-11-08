@@ -1,7 +1,7 @@
 <?php
 session_start();
 mb_internal_encoding('UTF-8');
-date_default_timezone_set('Europe/Rome');
+date_default_timezone_set('Asia/Bangkok');
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/web-lpmp-jatim/file_manager/source/',
+	'upload_dir' => '/lpmp/assets/img/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ $config = array(
 	| with final /
 	|
 	*/
-	'current_path' => '../source/',
+	'current_path' => '../../assets/img/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -88,7 +88,7 @@ $config = array(
 	|
 	*/
 //	'thumbs_base_path' => 'lpm-production/file_manager/thumbs/',
-    'thumbs_base_path' => '../thumbs/',
+    'thumbs_base_path' => './../assets/img/file_manager_thumb/',
 
 	/*
 	|--------------------------------------------------------------------------

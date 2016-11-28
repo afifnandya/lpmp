@@ -274,14 +274,14 @@
                         <div class="col-xs-12 no-padding">
                             <div class="gallery-slider">
                             <?php
-                                foreach ($gallery as $key => $value) {
+                                foreach ($gallery as $data) {
                             ?>
-                                <div class="gallery-wrap">
-                                    <img src="<?php echo $gallery[$key]['file'] ?>" alt="Gallery LPMP" class="img-responsive gallery-item">
-                                    <a href="<?php echo $gallery[$key]['file'] ?>" data-width="<?php echo $gallery[$key]['width'] ?>" data-length="<?php echo $gallery[$key]['height'] ?>" data-title="mks" data-index="0" class="gallery-click">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                </div>
+                            <div class="gallery-wrap">
+                                <img src="<?php echo $data['gambar'] ?>" alt="Gallery LPMP" class="img-responsive gallery-item">
+                                <a href="<?php echo $data['gambar'] ?>" data-width="<?php echo $data['width'] ?>" data-length="<?php echo $data['height'] ?>" data-title="<?php echo $data['keterangan'] ?>" data-index="<?php echo $data['urutan'] ?>" class="gallery-click">
+                                    <i class="fa fa-search-plus"></i>
+                                </a>
+                            </div>
                             <?php  }?>
                             </div>
                         </div>
@@ -292,11 +292,9 @@
                 <div class="artikel-body">
                     <p class="media-heading">Gallery</p>
                     <div class="media-text media-text-slider">
-                        <p>GO-JEK adalah sebuah perusahaan teknologi anan, termasuk transportasi dan pesan antar makanan. Kegiatan GO-JEK bertumpu pada tiga nilai pokok: kecepatan, inovasi, dan dampak sosial. Para Driver GO-JEK mengatakan bahwa pendapatan mereka meningkat semenjak bergabung sebagai mitra, mereka juga mendapatkan santunan kesehatan dan kecelakaan, serta mendapat akses ke lebih banyak pelanggan melalui aplikasi kami.</p>
-                        <p>Sebaliknya bagi kalangan berpenghasilan rendah (MBR) uang sebanyak itu bisa dibelanjakan berbagai macam kebutuhan. Bukan hanya rumah, juga perabot pelengkapnya, dan kendaraan.</p>
-                        <p>Namun, itulah fakta yang terjadi di Jakarta saat ini. Rumah mungil seharga Rp 2,5 miliar itu ada di kawasan pengembangan CitraGarden City, Jakarta Barat,</p>
-                        <p>Saat ini, pasokan lahan siap bangun sudah sangat terbatas. Karena itu, tak mengherankan jika harganya menembus angka Rp 15 juta per meter persegi</p>
-                        <p>PT Ciputra Residence pun memutuskan akan memanfaatkan lahan terbatas itu untuk pengembangan properti campuran, antara perumahan, apartemen, dan komersial.</p>
+                        <?php foreach ($gallery as $data) { ?>
+                        <p><?php echo $data['keterangan'] ?></p>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -352,20 +350,6 @@
             $(this).css("height",height2);
         });
     }
-    $('.gallery-slider').slick({
-        dots : true,
-        infinite: true,
-        arrows : false,
-        asNavFor : '.media-text-slider'
-    });
-    $('.media-text-slider').slick({
-        dots : false,
-        infinite: true,
-        arrows : false,
-        draggable : false,
-        fade : true,
-        asNavFor : '.gallery-slider'
-    });
     $('.headline-slider-for').slick({
          slidesToShow: 1,
          slidesToScroll: 1,
@@ -389,6 +373,7 @@
     </script>
     <script>
     var items = [];
+    var a = 0;
     $(".gallery-click").each(function(){
             var $href   = $(this).attr('href');
             var $width  = $(this).data('width');
@@ -402,6 +387,7 @@
             }
             items.push(item);
     });
+    console.log(items);
     var photoSwipe = $('.pswp')[0];
     $(".gallery-click").on('click',function(e){
         e.preventDefault();
@@ -426,6 +412,22 @@
         }
         var gallery = new PhotoSwipe( photoSwipe, PhotoSwipeUI_Default, items, option);
         gallery.init();
+    });
+    </script>
+    <script type="text/javascript">
+    $('.gallery-slider').slick({
+        dots : true,
+        infinite: true,
+        arrows : false,
+        asNavFor : '.media-text-slider'
+    });
+    $('.media-text-slider').slick({
+        dots : false,
+        infinite: true,
+        arrows : false,
+        draggable : false,
+        fade : true,
+        asNavFor : '.gallery-slider'
     });
     </script>
     <script>
@@ -455,7 +457,7 @@
               }
             ]
         });
-});
+    });
     </script>
 </body>
 </html>

@@ -61,6 +61,7 @@ class M_artikel extends CI_Model{
         $this->db->join('kategori', 'artikel.kategori = kategori.id');
         $this->db->where('kategori.nama', $kategori);
         $this->db->where('hapus',0);
+        $this->db->order_by('datetime', 'DESC');
         if($limit !== " "){
             $this->db->limit($limit);
         }

@@ -419,22 +419,19 @@ a.artikel-active:focus{
     background-color: #dc2a2a;
 }
 .inside-school-header .artikel-header-judul,.inside-school-header-underline{
-    /*background-color: #4caf50;*/
     background-color: #dc2a2a;
 }
 .kabar-sepekan-header .artikel-header-judul,.kabar-sepekan-header-underline{
-    /*background-color: #4db2ec;*/
-    background-color: #e9573e;
+    background-color: #dc2a2a;
 }
 .hidup-guruku-header .artikel-header-judul,.hidup-guruku-header-underline{
-    /*background-color: #f9c100;*/
-    background-color: #ff5421;
+    background-color: #dc2a2a;
 }
 .buku-header .artikel-header-judul,.buku-header-underline{
-    background-color: #e9573e;
+    background-color: #dc2a2a;
 }
 .gallery-header .artikel-header-judul,.gallery-header-underline{
-    background-color: #e9573e;
+    background-color: #dc2a2a;
 }
 .artikel-body iframe{
     width: 100%;
@@ -693,3 +690,115 @@ a.artikel-active:focus{
 .gallery-item a:hover{
     background: transparent;
 }
+/*Struktur Organisasi*/
+.back-halaman-struktur{
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.back-struktur{
+  border: 1px;
+  border-style: hidden;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 8px #C1BBD9;
+}
+.back-judul{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.font-struktur{
+  background-color: #9a0101;
+  font-size: 20px;
+  color: white;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.garis-struktur{
+  height: 3px;
+  background-color: #9a0101;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+/*End Struktur Organisasi*/
+/*Visi dan misi*/
+.font-visimisi{
+  background-color: #9a0101;
+  font-size: 18px;
+  color: white;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.back-halaman-visi{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.garis-visi{
+  height: 3px;
+  background-color: #9a0101;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.back-visi{
+  border: 1px;
+  border-style: hidden;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 8px #C1BBD9;
+}
+.font-visi{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.font-misi{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.font-detail-visi{
+  font-size: 16px;
+}
+.font-detail-misi{
+  font-size: 16px;
+}
+.visi{
+  margin-bottom: 30px;
+}
+/*End visi dan misi*/
+/*sejarah*/
+.back-halaman-sejarah{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.back-sejarah{
+  border: 1px;
+  border-style: hidden;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 8px #C1BBD9;
+}
+.font-sejarah{
+  background-color: #9a0101;
+  font-size: 20px;
+  color: white;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.garis-sejarah{
+  height: 3px;
+  background-color: #9a0101;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+p{
+  font-size: 14px;
+  text-align: justify;
+}
+/*End sejarah*/

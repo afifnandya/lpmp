@@ -269,10 +269,12 @@
             }
             items.push(item);
     });
+    console.log(items);
     var photoSwipe = $('.pswp')[0];
     $(".gallery-click").on('click',function(e){
         e.preventDefault();
         var index = $(this).data('index');
+        alert(index);
         var option = {
             index : index,
             bgOpacity: 0.7,

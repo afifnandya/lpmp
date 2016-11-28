@@ -19,11 +19,18 @@
     <div class="clearfix"></div>
     <!-- content -->
     <div class="content">
-    <div class="container no-padding">
+    <div class="container no-padding back-halaman-struktur">
         <div class="col-md-1"></div>
         <div class="col-md-10 col-xs-12">
-            <h3>Struktur organisasi</h3>
-            <img src="<?php echo base_url('assets/img/struktur organisasi.jpg') ?>" class="img-responsive">
+            <div class="back-judul">
+              <span class="font-struktur">Struktur organisasi</span>
+            </div>
+            <div class="garis-struktur"></div>
+            <div class="back-struktur">
+              <center>
+              <img src="<?php echo base_url('assets/img/struktur organisasi.jpg') ?>" class="img-responsive">
+              </center>
+            </div>
         </div>
         <div class="col-md-1"></div>
     </div>

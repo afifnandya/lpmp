@@ -4,6 +4,8 @@ body{
 .detail-artikel-wrap{
     box-shadow: 0px 0px 8px #C1BBD9;
     margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .guruku-judul-utama a{
   text-decoration: none;

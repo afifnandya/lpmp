@@ -18,24 +18,35 @@
     <div class="clearfix"></div>
     <!-- content -->
     <div class="content">
-    <div class="container no-padding">
+    <div class="container no-padding back-halaman-visi">
         <div class="col-md-1"></div>
         <div class="col-md-10 col-xs-12">
-            <h2>Visi & Misi</h2>
-            <h4>Visi</h4>
-            <h4><blockquote>“TERBENTUKNYA INSAN SERTA EKOSISTEM PENDIDIKAN JAWA TIMUR YANG BERMUTU DAN BERKARAKTER DENGAN BERLANDASKAN GOTONG ROYONG”</blockquote></h4>
-            <h4>Misi</h4>
-            <ol>
-                <li>Mewujudkan lulusan yang bermutu nasional dan internasional</li>
-                <li>Mewujudkan Kurikulum yang bermutu nasional dan internasional</li>
-                <li>Mewujudkan Proses pembelajaran bermutu</li>
-                <li>Mewujudkan Proses penilaian hasil belajar bermutu</li>
-                <li>Mewujudkan Sarana dan prasarana yang memadai dan bermutu</li>
-                <li>Mewujudkan Pendidik dan Tenaga Kependidikan yang kuat dan bermutu (kompeten)</li>
-                <li>Mewujudkan Pembiayaan pendidikan yang memadai</li>
-                <li>Mewujudkan Tata Kelola pendidikan yang kuat dan bermutu</li>
-                <li>Mewujudkan pelaku pendidikan yang kuat</li>
-            </ol>
+          <div class="back-judul">
+            <span class="font-visimisi">Visi & Misi</span>
+          </div>
+          <div class="garis-visi"></div>
+          <div class="back-visi">
+            <div class="font-visi"><span>Visi</span></div>
+            <div class="visi"><center>
+              <span class="font-detail-visi">
+              “TERBENTUKNYA INSAN SERTA EKOSISTEM PENDIDIKAN JAWA TIMUR YANG BERMUTU DAN BERKARAKTER DENGAN BERLANDASKAN GOTONG ROYONG”
+              </span></center>
+            </div>
+            <div class="font-misi"><span>Misi</span></div>
+            <div class="">
+              <ol class="font-detail-misi">
+                  <li>Mewujudkan lulusan yang bermutu nasional dan internasional</li>
+                  <li>Mewujudkan Kurikulum yang bermutu nasional dan internasional</li>
+                  <li>Mewujudkan Proses pembelajaran bermutu</li>
+                  <li>Mewujudkan Proses penilaian hasil belajar bermutu</li>
+                  <li>Mewujudkan Sarana dan prasarana yang memadai dan bermutu</li>
+                  <li>Mewujudkan Pendidik dan Tenaga Kependidikan yang kuat dan bermutu (kompeten)</li>
+                  <li>Mewujudkan Pembiayaan pendidikan yang memadai</li>
+                  <li>Mewujudkan Tata Kelola pendidikan yang kuat dan bermutu</li>
+                  <li>Mewujudkan pelaku pendidikan yang kuat</li>
+              </ol>
+            </div>
+          </div>
         </div>
         <div class="col-md-1"></div>
     </div>

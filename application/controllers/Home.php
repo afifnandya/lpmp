@@ -9,6 +9,7 @@ class Home extends CI_Controller {
 		$visitor = count_visitor();
 		$this->load->model("M_artikel");
 		$this->load->model("M_header");
+		$this->load->model("M_gallery");
 		$data['artikel_inside_school'] = $this->M_artikel->getArtikelByKategori("Inside School"," ");
 		$data['artikel_hidup_guruku'] = $this->M_artikel->getArtikelByKategori("Hidup Guruku"," ");
 		$data['artikel_kabar_sepekan'] = $this->M_artikel->getArtikelByKategori("Kabar Sepekan"," ");
@@ -22,13 +23,11 @@ class Home extends CI_Controller {
 			$data['header'][$key]['judul_artikel'] = $artikelById[0]['judul'];
 			$data['header'][$key]['sub_judul_artikel'] = $artikelById[0]['subjudul'];
 		}
-		$data['gallery'][0]['file'] = base_url("assets/img/gallery/7.jpg");
-		$data['gallery'][1]['file'] = base_url("assets/img/gallery/6.jpg");
-		$data['gallery'][2]['file'] = base_url("assets/img/gallery/8.jpg");
-		$data['gallery'][3]['file'] = base_url("assets/img/gallery/9.jpg");
-		$data['gallery'][4]['file'] = base_url("assets/img/gallery/5.jpg");
-		for ($i=0;$i<5;$i++) {
-			list(${"width_gambar".$i}, ${"height_gambar".$i}) = getimagesize($data['gallery'][$i]['file']);
+		$data['gallery'] = $this->M_gallery->getgallery("","0");
+		foreach ($data['gallery'] as $i => $value) {
+			$gambar = base_url().$data['gallery'][$i]['gambar'];
+			$data['gallery'][$i]['gambar'] = $gambar;
+			list(${"width_gambar".$i}, ${"height_gambar".$i}) = getimagesize($data['gallery'][$i]['gambar']);
 			$data['gallery'][$i]['width'] = ${"width_gambar".$i};
 			$data['gallery'][$i]['height'] = ${"height_gambar".$i};
 		}
